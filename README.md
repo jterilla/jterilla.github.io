@@ -1,2 +1,2 @@
-# jterilla.github.io
+# johnterilla.github.io
 Public Academic Webpages
