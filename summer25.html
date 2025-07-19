@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>summer25.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="the-queens-math-bulletin">THE QUEENS MATH BULLETIN</h1>
+<h3 id="a-letter-from-the-department-of-mathematics-queens-college--summer-2025">A Letter from the Department of Mathematics, Queens College | Summer 2025</h3>
+<p><img src="images/manhattan.jpg" alt="inline fill"></p>
+<hr>
+<h2>Message from the Chair</h2>
+    <p>
+      Hi everyone. I'm writing with an update on what's been happening in the Mathematics Department at Queens College. 
+      You already know that this is a top-tier department within the greatest urban university in the world—a place where 
+      you can get a world-class math education at a great price, where renowned faculty are making new discoveries and 
+      sharing them with students and the broader community. But you might not know the specifics of what we’ve been up to 
+      lately. That’s where this Summer 2025 edition of the <em>Queens Math Bulletin</em> comes in.
+    </p>
+    <p>
+      In addition to the news you'll find in this newsletter, I want to share a bit of personal news. 
+      First, let me say what a privilege it has been to serve as Chair of the department over the past two years. 
+      I love the Queens College Math Department, and it has been a particular honor to represent so many people doing 
+      extraordinary work—for their students, for CUNY, for the mathematical community, and for the world. 
+      I’m truly proud of what we’ve accomplished together. Thank you.
+    </p>
+  <div style="display: flex; align-items: center;">
+  <div style="flex: 1; padding-right: 1rem;">
+    <p>
+      I’ll be stepping down as Chair this summer to take on a new role as Executive Officer of the PhD Program in Mathematics 
+      at the CUNY Graduate Center. As some of you may know, Leo Zippin—who famously solved Hilbert’s fifth problem—was a central 
+      figure in our department and, in 1961, founded the PhD program at the Graduate Center, serving as its first Executive Officer. 
+      The connection between Queens and the Graduate Center has remained strong ever since. Many of our students have gone on to 
+      study there, and several Queens faculty, including Jozef Dodziuk, have served as EO.  Many of us serve on the doctoral faculty.  In fact, join me in congratulating Nick Vlamis and Delaram Kahrobaei as the newest members of the department to serve on the doctoral faculty.
+    </p>
+  <p>
+      While I’ll still be a proud Queens College Math Professor, I’ll be devoting most of my time to my new responsibilities. 
+      It’s hard to step away from Queens when there are so many exciting things happening here, but I’m honored to follow in the footsteps 
+      of both Zippin and Dodziuk as another Queens professor to lead the PhD program.
+    </p>
+  </div>
+<p><img
+    src="images/IMG_6570.jpeg"
+    alt="John Terilla"
+    style="max-width:500px; height:auto; margin-left: 1rem; margin-top: 0.5rem;"
+  /></p>
+</div>
+ <p>
+      I hope you all have a wonderful summer, and I look forward to seeing you soon!
+    </p>
+<hr>
+<h2 id="feature-%E2%80%A2-beyond-the-finite-horizon">Feature • <strong>Beyond the Finite Horizon</strong></h2>
+<h3 id="charting-the-landscape-of-big-symmetries">Charting the Landscape of Big Symmetries</h3>
+<blockquote>
+<p><strong>“Symmetry,</strong> as <strong>Hermann Weyl</strong> put it, <strong>is the idea by which humankind has long sought to ‘comprehend and create order, beauty, and perfection.’”</strong></p>
+</blockquote>
+<p>Whether you are studying molecular bonds, the Standard Model of particle physics, or the tilings that adorn Moorish mosaics, a <em>group action</em> is at work behind the scenes.  These actions transform spaces in ways that respect algebraic structure—and that simple, elegant concept explains many of the remarkable patterns we see in the world.</p>
+<p>The actions of small finite groups are classical gems, beautiful and intricately structured.  When the algebraic structure becomes infinite, gets larger the terrain becomes more difficult and there is much to be discovered.  Here at Queens College we have bold researchers are mapping the frontier.</p>
+<ul>
+<li>
+<p><strong><a href="https://scholar.google.com/citations?user=WxCwDn8AAAAJ&amp;hl=en">Dr. Russell Miller</a></strong> works with symmetries so large and complex they are called <em>uncomputable</em>.  A world-leader in computability theory, Miller has turned his attention to the absolute Galois Group, which consists of symmetries of the algebraic closure of the field of rational numbers --- it's the <em>ultimate</em> symmetry group of all algebraic equations.  We know the Absolute Galois Group is a huge, profinite object with a mysterious portion that is uncomputable.  Miller’s NSF‑funded project <em>Computability and the absolute Galois group of the rational numbers</em> asks: <em>how much of this group’s essential structure lies in the uncomputable region?</em>  His work opens a new dialogue between mathematical logic and number theory, probing the very limits of what can possibly be known.</p>
+</li>
+<li>
+<p><strong><a href="https://vlamis.nyc/">Dr. Nicholas Vlamis</a></strong> pushes the study of symmetries of low dimensional topological objects into the infinite.  Since the early 20th century, mapping class groups have provided an algebraic window into the topology of small, compact surfaces. When a surface accumulates infinitely many handles or punctures—like the so-called “Loch Ness Monster” surface—its symmetries swell into what's called a <strong>big mapping class group</strong>, a group so large it is not even finitely generated.  Backed by a major NSF award (and six consecutive PSC‑CUNY grants), Vlamis leads the field, developing the technical tools and producing foundational results that others build on.  With J. Aramayona, has written the <a href="https://arxiv.org/abs/2003.07950">go‑to survey</a> for younger researchers entering this rapidly growing field.</p>
+</li>
+<li>
+<p><strong><a href="https://dragomirsaric.com/">Dr. Dragomir Šarić</a></strong> approaches the same infinite‑type surfaces from an analytic angle.  Decidedly less algebraic, Šarić uses tools like quadratic differentials and measured foliations.  In a celebrated paper <em>Quadratic Differentials and Foliations on Infinite Riemann Surfaces</em> published in the <em><a href="https://www.dukeupress.edu/duke-mathematical-journal">Duke Mathematical Journal</a></em> he provides the coordinates for “big Teichmüller spaces,” adding a foliation measure criterion for parbolicity in the infinite case, where the technical tools of Teichmuller dynamics and foliation theory are considerably more delicate.</p>
+</li>
+</ul>
+<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+  <img src="images/Russell-Miller.png" alt="Russell Miller" style="height: 230px; width: auto;" />
+  <img src="images/vlamis.jpeg" alt="Nick Vlamis" style="height: 230px; width: auto;" />
+  <img src="images/dragomir.png" alt="Dragomir Saric" style="height: 230px; width: auto;" />
+</div>
+<p>From the algebraic symmetries of equations to the mapping class groups of infinite-type surfaces in topology, our faculty are leading the study beyond the classical  horizon, revealing new phenomena and discovering entirely new mathematics.</p>
+<hr>
+<h2 id="the-kiely-hallway-project">The Kiely Hallway Project</h2>
+<p>Once an ordinary passageway outside <strong>Kiely 243</strong>, this corridor has been completely reimagined as a living gallery—a space where the elegance and history of mathematics come alive. Now, the thousands of students who walk its length each semester pass through a vibrant mathematical environment and gather beneath bright windows overlooking the Kiely courtyard to pause, reflect, and connect.</p>
+<p>Inspired by the design ethos of <strong><a href="https://www.moma.org/">MoMA</a></strong> and the playful spirit of <strong><a href="https://momath.org/">MoMath</a></strong>, the hallway tells many stories. One section charts the epic history of mathematics, anchored by Charles Eames’s iconic <em>Minds of Mathematics</em> poster (check out <strong><a href="https://youtu.be/5H0Ym1gBsVY">Daniel Ostroff on the Eames Men of Modern Mathematics IBM Timeline</a></strong> on YouTube). Large‑scale mathematical artworks turn corners into destinations, and five bright digital displays offer vivid glimpses into the lives of influential mathematicians, student achievements, and the vast career possibilities a math degree can unlock.</p>
+<p>On a central way sits the <strong><a href="https://www.qc.cuny.edu/academics/math/made-gallery/">Mathematical Art Digital Exhibition (MADE@QC)</a></strong>.  QR codes invite viewers to learn more about the artists and to learn more about sphere inversion, torus knots, and the many other mathematical ideas behind each piece in the rotating collection.</p>
+<p>In a nod to both past and future, two antique phone booths have been repurposed to house interactive iPad kiosks, inviting visitors to explore mathematical apps and games. With comfortable benches and charging stations, the hallway is no longer just a conduit—it’s now a destination, a space to gather and to discover.</p>
+<blockquote>
+<p><strong>“Mathematics is a beautiful subject with many fascinating applications.”</strong></p>
+</blockquote>
+<p>This transformation, made possible by the vision and generosity of our alumni and  faculty, stands as a testament to that belief.</p>
+<hr>
+<h2 id="research-spotlights">Research Spotlights</h2>
+<h3 id="a-number%E2%80%91theoretic-quest-spanning-generations">A Number‑Theoretic Quest Spanning Generations</h3>
+<p>The department proudly celebrates <strong><a href="https://scholar.google.com/citations?user=M5VQj5cAAAAJ&amp;hl=en">Dr. Maria Sabitova</a></strong> for her landmark paper <em>A Number‑Theoretic Classification of Toroidal Solenoids</em> published in <strong><em>Proc. Lond. Math. Soc.</em></strong> in 2024.  Her single‑author, 43‑page tour‑de‑force completes a problem that has challenged mathematicians for nearly a century.</p>
+<div style="display: flex; align-items: center;">
+   <img
+    src="images/sabitova.jpg"
+    alt="Maria Sabitova"  
+    style="max-width:200px; height:auto; margin-left: 1rem; margin-right: 2rem; margin-bottomw: 1rem; "
+  />
+  <div style="flex: 1">
+    <p>Toroidal solenoids arise in dynamical systems, and classifying their cohomology groups breaks down naturally by dimension.  Vietoris and Dantzig began the one‑dimensional case in the 1920s, and Baer solved it in 1937 when he presented a complete invariant.  Higher dimensions resisted every attempt—until Sabitova introduced new number‑theoretic tools in 2022 to settle the two‑dimensional case, then extended those ideas to solve the classification problem for all dimensions.  Her work is a stunning example of how perseverance and innovation can unlock a seemingly intractable problem.</p>
+  </div>
+</div>
+<h3 id="a-productive-sabbatical">A Productive Sabbatical</h3>
+<div style="display: flex; align-items: center;">
+<div style="flex: 1">
+  <p>
+<a href="https://kapelner.com/publications"><strong>Dr. Adam Kapelner</strong></a> is known for applying sharp statistical thinking in unexpected arenas—from <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0267537">book‑cover bias</a> to <a href="https://www.ajgponline.org/article/S1064-7481(23)00420-7/abstract">machine‑learning analysis of depression treatments</a>. During his recent sabbatical, he turned that same precision toward a fundamental question: *What is the ideal role of randomness in experimental design?*
+<p>At the heart of every experiment lies a tension. Randomization is meant to eliminate bias, yet pure randomness can—by chance—produce a wildly unbalanced result. Imagine a clinical trial where, just by luck, all the younger patients end up in the same treatment group.</p>
+</p>
+<blockquote><strong>Theorem:</strong> <em>The pairwise‑matching design is optimal under extreme noise and extreme assignments.</em></blockquote>
+</div>
+ <img
+    src="images/adam.jpg"
+    alt="Adam Kapelner"  
+    style="max-width:180px; height:auto; margin-left: 1rem; margin-right: 2rem; margin-bottomw: 1rem; "
+  />
+</div>
+<p>Exploring that tension became the focus of Kapelner’s sabbatical year, resulting in a series of new theorems and publications.  In <strong><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/anzs.12403">a March 2025 paper in <em>STAT</em></a></strong>, Kapelner (with Krieger and Azriel) defines a precise optimality criteria and rigorously proves that the best design must be less random than complete randomization, yet more random than any deterministic allocation.</p>
+<p>The results are of more than theoretical interest.  They  offer researchers crucial theoretical clarity for building robust experiments.</p>
+<hr>
+<h2 id="a-new-classic-in-complex-analysis">A New Classic in Complex Analysis</h2>
+<div style="display: flex; align-items: center;">
+  <img
+    src="images/zakeri.png"
+    alt="a a-course-in-complex-analysis"
+    style="max-width:150px; height:auto; margin-right: 1rem;"
+  />
+  <div style="flex: 1;">
+    <p>Dr. Saeed Zakeri has authored a modern classic: <a href="https://press.princeton.edu/books/hardcover/9780691207582/a-course-in-complex-analysis"><em>A Course in Complex Analysis</em></a>, published by Princeton University Press. Already adopted in PhD programs around the world, the book stands out for its geometric insight, elegant exposition, and broad scope—covering topics from Möbius transformations and conformal metrics to the uniformization theorem.
+    </p>  
+    <blockquote>
+  <em>
+    Beautifully produced, beautifully written, on an incomparably beautiful area of mathematics, this is an inspirational book that I shall gratefully return to again and again.
+  </em>
+  <div style="text-align: right; margin-top: 0.5em;">
+    —Nick Lord, <em>Mathematical Gazette</em>
+  </div>
+</blockquote>
+  </div>
+</div>
+<br>
+<p>Designed for graduate-level study, the book offers a seamless blend of analysis and geometry, with over 350 thoughtfully constructed exercises and clear historical framing. According to the <a href="https://old.maa.org/press/maa-reviews/a-course-in-complex-analysis">MAA Review</a>, Zakeri’s style “sets this book apart” from more conventional texts, making it ideal both for classroom teaching and independent exploration.
+    </p>
+<p>A vibrant new voice in the graduate mathematics textbook landscape, Zakeri’s work is already reshaping how complex analysis is understood and taught.</p>
+<hr>
+<h2 id="critical-math-a-moving-conversation">Critical Math: A Moving Conversation</h2>
+<p>The Math Department is proud to be a sponsor of Critical Math—an experimental, human-scale mathematical retreat founded and led by Queens College's own <strong><a href="https://www.scottwilsonmath.com/">Scott Wilson</a></strong>.  The inaugural event, taking place this summer in Germany’s Black Forest, brings together a small, interdisciplinary group of mathematicians and mathematically curious thinkers for a week of biking, conversation, and collaborative reflection.</p>
+<div style="display: flex; align-items: center;">
+ <img
+    src="images/bike.png"
+    alt="Critical Math Logo"
+    style="max-width:150px; height:auto; margin-right: 2rem;margin-left: 1rem;"
+  />
+   <div style="flex: 1;">
+    <blockquote><em>By incorporating cycling into the very structure of the event, we aim to highlight how the same good practices that help keep the planet healthy also enhance our intellectual and physical well-being"
+    </em></blockquote>
+  </div>
+</div>
+<p>Critical Math is not a conference. There are no keynote speakers, no scheduled talks, and no official outcomes. Instead, it offers space: to think, to share, and to move—both intellectually and physically. Participants bike between towns, with stops for discussion, informal talks, and shared meals. Destinations include scenic valleys, forest guesthouses, and mathematical research institutes like the famous <strong><a href="https://www.mfo.de/">Oberwolfach Research Institute</a></strong>.</p>
+<p>Rooted in curiosity and powered by people, Critical Math offers a new model for how mathematical communities can grow—one pedal stroke, and one honest conversation, at a time.</p>
+<p>We wish them a wonderful and inspiring event.  May it be the first of many!</p>
+<hr>
+<h2 id="alumni-spotlights">Alumni Spotlights</h2>
+<h3 id="the-record-breaker">The Record Breaker</h3>
+<div style="display: flex; align-items: center;">
+<div style="flex: 1;">
+  <p>
+  <strong>Dr. Zev Klagsbrun ’06</strong>—in collaboration with <strong>Dr. Noam Elkies</strong> of Harvard—has broken an 18-year record by unveiling an elliptic curve with <strong>rank 29</strong>, the highest ever discovered. 
+  <a href="https://www.quantamagazine.org/new-elliptic-curve-breaks-18-year-old-record-20241111/" target="_blank">
+    Read more in <em>Quanta Magazine</em>
+  </a>.
+</p>
+<p>
+  Elliptic curves are foundational to number theory and modern cryptography. While most have rank 0 or 1, rare outliers like this one exhibit strikingly complex rational point structures. 
+  It remains an open question whether curves of arbitrarily high rank exist—and the Elkies–Klagsbrun result pushes the boundaries of what is known.
+</p>
+</div>
+ <img
+    src="images/zk.png"
+    alt="Zev-Klagsbrun"
+    style="max-width:150px; height:auto;margin-left: 2rem;"
+  />
+</div> 
+<p>
+  We proudly congratulate Dr. Klagsbrun on this extraordinary achievement.
+</p>
+<h3 id="the-inaugural-laureate">The Inaugural Laureate</h3>
+<div style="display: flex; align-items: top;">
+  <div style="text-align: center; margin-right: 2rem; margin-left: 1rem; width: 400px;">
+    <img
+      src="images/IMG_0738ed.jpeg"
+      alt="award-presentation"
+      style="width: 100%; height: auto;"
+    />
+    <div style="font-size: 0.85em; color: gray; margin-top: 0.5em;">
+      <em>From left to right: Azita Mayeli, Dragomir Šarić, Mike Pandazis, Christian Wolf, Ravi Kulkarni</em>
+    </div>
+  </div>
+  <div style="flex: 1;">
+    <p>From Queens College undergraduate to PhD student to first‑ever recipient of the *Ravindra S. Kulkarni Award for Best Thesis*, <a href="https://michaelpandazis.in"><strong>Dr. Michael Pandazis ’19</strong></a> has charted an exceptional path.  His dissertation, supervised by Dr. Šarić  After years as a valued adjunct at QC, he joins the faculty of CUNY’s John Jay College this fall.</p>
+    <br>
+    <blockquote>
+      <em>Mike's PhD thesis opens a new chapter in the dynamics of infinite surfaces.</em>
+      <div style="text-align: right; margin-top: 0.5em;">
+        —Christian Wolf, Executive Officer of the PhD program
+      </div>
+    </blockquote> 
+  </div>
+</div>
+<hr>
+<h2 id="celebrating-our-students">Celebrating Our Students</h2>
+<h3 id="class-of-2025--honors-in-mathematics">Class of 2025 — Honors in Mathematics</h3>
+<p>Ashir Ahmed · Sulaiman Alam · Kevin Bedoya · Jonah Bierig · Erica Bonheur · George Charalambous · Rongdao Chen · Ezra Cinamon · Dominika Dotlacilova · Safiyah Gafar · Abigail Kogan · Fanfang Lyu · Shana Mandelbaum · Adityo Mamun · Paidi Mathers · Ben Pulatov · Allen Singleton · Uri Spiro · Lukas Tarrao · Jacob Tennenbaum · Ariana Verbanac · Natasha Watson · Tao Wu · Yuanhong Yu</p>
+<div style="display: flex; align-items: center;">
+ <img
+    src="images/adityo.png"
+    alt="Adityo Mamun"
+    style="width:275px; height:auto; margin-right: 2rem;margin-left: 1rem;margin-top: 2rem"
+  />
+   <div style="flex: 1;">
+<h3>2025 Departmental Awards & Scholarships</h3>
+<ul>
+  <li><strong>George Charalambous</strong> — <span style="color: gray; font-style: italic;">Claire and Samuel Jacobs Award</span></li>
+  <li><strong>Rongdao Chen</strong> — <span style="color: gray; font-style: italic;">Banesh Hoffmann Memorial Award</span></li>
+  <li><strong>Safiyah Gafar</strong> — <span style="color: gray; font-style: italic;">Sandbox AQ Award</span></li>
+  <li><strong>Jonathan Halabi</strong> — <span style="color: gray; font-style: italic;">Dr. R. S. Kulkarni Mathematics Award (Number Theory / Algebra, Graduate)</span></li>
+  <li><strong>Taqiya Hussain</strong> — <span style="color: gray; font-style: italic;">Dr. R. S. Kulkarni Mathematics Award (Topology / Geometry, Graduate)</span></li>
+  <li><strong>Adityo Mamun</strong> — <span style="color: gray; font-style: italic;">Eva and Jacob Paulson Memorial Award</span></li>
+  <li><strong>Paidi Mathers</strong> — <span style="color: gray; font-style: italic;">S. and D. Kulkarni Award (Differential Geometry)</span></li>
+  <li><strong>Allen Singleton</strong> — <span style="color: gray; font-style: italic;">Thomas A. Budne Memorial Award</span></li>
+  <li><strong>Lukas Tarrao</strong> — <span style="color: gray; font-style: italic;">Samuel Jacobs Award</span></li>
+  <li><strong>Jacob Tennenbaum</strong> — <span style="color: gray; font-style: italic;">Fugosich Scholarship</span></li>
+  <li><strong>Ariana Verbanac</strong> —
+    <span style="color: gray; font-style: italic;">
+      Mrs. Neela Kulkarni Prize · Joseph Hershenov Prize · S. and D. Kulkarni Award (Complex Analysis) · Nick Metas Award · Dr. R. S. Kulkarni Award (Topology / Geometry, Undergraduate)
+    </span>
+  </li>
+  <li><strong>Anthony Wright</strong> — <span style="color: gray; font-style: italic;">Dr. R. S. Kulkarni Award (Number Theory / Algebra, Undergraduate)</span></li>
+  <li><strong>Tao Wu</strong> — <span style="color: gray; font-style: italic;">Arthur Sard Memorial Award · Sandbox AQ Award</span></li>
+</ul>
+</div>
+</div>
+<p><em>Congratulations to Rongdao Chen, Adityo Mamun, and Ariana Verbanac who will be entering PhD programs in math in Fall 2025!</em></p>
+<hr>
+<h2 id="recognizing-faculty-awards">Recognizing Faculty Awards</h2>
+<p><strong>The Simons Foundation</strong> — Yunping Jiang · Krzysztof Klosin · Russell Miller · Dragomir Šarić · John Terilla · Nick Vlamis · Scott Wilson<br>
+<strong>National Science Foundation</strong> — Russell Miller · Alexey Ovchinnikov · Nicholas Vlamis<br>
+<strong>Office of Naval Research</strong> — Delaram Kahrobaei<br>
+<strong>Queens College Divisional Teaching Award</strong> — Adam Kapelner<br>
+<strong>CUNY Research Incentive Awards</strong> — Moshe Adrian · Adam Kapelner (with William Blanford in Env. Sci.)
+<strong>PSC-CUNY</strong> —  Moshe Adrian · Krzysztof Klosin · Dan Lee · Russell Miller · Dragomir Šarić · Nick Vlamis · Scott Wilson</p>
+<hr>
+<h2 id="from-our-alumni-community">From Our Alumni Community</h2>
+<p>Our alumni translate mathematical training into impactful careers across academia, finance, data science, and technology. From <strong>Namisha Singh ’24</strong> (Data Analyst, <em>The New York Times</em>) and <strong>Todd Gaugler</strong> (Quant, Point72) to <strong>Rebecca Horowitz ’20</strong> (AI Software Engineer, JPMorgan Chase), their work shows what is possible with a strong mathematical foundation and a bit of heart.</p>
+<div style="display: flex; gap: 1rem; overflow-x: auto; flex-wrap: nowrap; justify-content: start; padding-bottom: 1rem;">
+  <img src="images/singh.png" alt="Namish Sinh" style="width: 300px; flex-shrink: 0;" />
+  <img src="images/gaugler.png" alt="Todd Gaugler" style="width: 300px; flex-shrink: 0;" />
+  <img src="images/horowitz.png" alt="Rebecca Horowitz" style="width: 300px; flex-shrink: 0;" />
+  </div>
+  <div style="display: flex; gap: 1rem; overflow-x: auto; flex-wrap: nowrap; justify-content: start; padding-bottom: 1rem;">
+  <img src="images/hirsh.jpg" alt="Joseph Hirsh" style="width: 300px; flex-shrink: 0;" />
+  <img src="images/osorio.png" alt="Anna Osorio" style="width: 300px; flex-shrink: 0;" />
+  <img src="images/tamar.jpg" alt="Tamar Lichter-Blanks" style="width: 300px; flex-shrink: 0;" />
+</div>
+<hr>
+<h2 id="stay-connected">Stay Connected</h2>
+<ul>
+<li><strong><a href="https://www.qc.cuny.edu/academics/math/">Department website</a></strong></li>
+<li><strong><a href="https://www.linkedin.com/in/queens-college-math-department-501a43252">LinkedIn</a></strong></li>
+<li><strong><a href="https://qccommunity.qc.cuny.edu/queenscollege/donatenow">Donate Now</a></strong> Don't forget to indicate that your gift is for the Math department.  Thank you!</li>
+</ul>
+<hr>
+<!-- FOOTER IMAGE PLACEHOLDER: Queens College logo -->
+
+</body>
+</html>
