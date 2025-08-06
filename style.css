@@ -77,8 +77,6 @@ header {
 
 /* Nav container & items */
  .global-nav { 
-    background-color: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-border);
     padding: var(--space-s) var(--space-s);
     margin-bottom: 0;
     border-radius: 4px 4px 0 0;
@@ -86,7 +84,7 @@ header {
 .global-nav .container {
   display: flex;
   align-items: center;
-  font-size: 0.9rem;       /* a touch smaller than body text */
+  font-size: 1rem;       /* a touch smaller than body text */
 }
 
 .global-nav a,
@@ -94,7 +92,7 @@ header {
   font-weight: 400;        /* normal weight */
   text-decoration: none;
   color: var(--accent);
-  padding: 0.25rem;              /* remove extra padding */
+  padding: 0.15rem;              /* remove extra padding */
 }
 
 /* Current page styling */
