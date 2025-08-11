@@ -1,157 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="John Terilla's homepage">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="0AFYZrzM_gBC7YpOUZ1vG2yQikks-OSOP7gZyaTiKxY">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>John Terilla</title>
-  <!-- load Inter’s @font-face rules -->
-  <link rel="preload" href="fonts/inter.css" as="style">
-  <link rel="stylesheet" href="style.css?v=20250806">
+  <meta name="description" content="Mathematician. Topology, AI, and Quantum. Executive Officer of the PhD Program in Mathematics at the CUNY Graduate Center." />
+  <link rel="canonical" href="https://jterilla.github.io/" />
+  <style>
+    /* ——— Fonts ——— */
+    
+    
+
+    /* ——— Theme tokens ——— */
+    :root {
+      --bg: #ffffff;
+      --ink: #0b0c0f;
+      --muted: #5a6270;
+      --accent: #b8871b; /* amber */
+      --link: currentColor;
+      --maxw: 960px;
+      /* section containers (cards): adjust these two lines to taste */                           /* e.g., color-mix(in oklab, #0b0c0f 2%, transparent) */               /* e.g., 1px solid rgba(127,127,127,.14) */
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0b0c0f; --ink:#e8eaef; --muted:#b2b8c4; --accent:#ffd591; }
+    }
+
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; }
+
+    /* accessibility */
+    .skip-link { position:absolute; left:-999px; top:-999px; }
+    .skip-link:focus { left: 16px; top: 16px; background: #ffd166; color:#000; padding:.5rem .75rem; border-radius:.5rem; text-decoration:none; }
+
+    /* art-first hero */
+    .hero { margin: 0; }
+    .hero figure { margin: 0; }
+    .hero img { display:block; width:100%; height: clamp(280px, 55vh, 560px); object-fit: cover; }
+    .credit { position: relative; }
+    .credit small { position:absolute; right:.75rem; bottom:.5rem; background: rgba(0,0,0,.45); color:#fff; padding:.2rem .5rem; border-radius:.4rem; font-size:.8rem; }
+
+    /* intro */
+    .intro { padding: 2rem 0 1.25rem; }
+    .intro h1 { font-size: clamp(1.9rem, 3vw + 1rem, 2.4rem); margin:.25rem 0; letter-spacing:.2px; }
+    .intro .tag { color: var(--muted); margin: 0 0 .5rem; }
+
+    /* sections */
+    section { padding: 1.25rem 0; }
+    h2 { font-size: 1.3rem; margin: 0 0 .5rem; }
+    .meta { color: var(--muted); text-decoration: none; }
+
+    /* containers */
+    
+
+    /* lists */
+    .list { list-style:none; padding:0; margin:0; }
+    .list li { padding: .4rem 0; }
+    .list li + li { margin-top: .2rem; }
+
+    /* book block */
+    .book { display:grid; grid-template-columns: auto 1fr; gap: 1rem; align-items:center; }
+    .book img { width: 110px; height:auto; }
+
+    /* contact card */
+    
+    
+
+    /* footer */
+    footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 2rem; }
+    .footer-row { display:flex; justify-content:space-between; align-items:center; padding:1rem 0 2rem; color: var(--muted); }
+
+    /* links & focus */
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+    
+    a:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* dividers */
+    .divider { border: 0; height: 1px; background: color-mix(in oklab, var(--ink) 18%, transparent); margin: .5rem 0 1.25rem; }
+
+    /* grid helpers */
+    .grid{display:grid;gap:1rem}
+    @media (min-width:920px){.grid.two{grid-template-columns:1fr 1fr}}
+  </style>
 </head>
 <body>
-	<a href="#main" class="skip-link">Skip to content</a>
-<header>
-  <nav class="global-nav">
-    <div class="container">
-      <span class="current">Home</span>
-      <a href="./contact.html">Contact</a>
-      <a href="./TopologyBook/index.html">Topology Book</a>
-    </div>
-  </nav>
-   <div class="container">
-  <figure class="banner-figure">
-    <img
-      class="banner-img"
-      src="banner-2400.avif"
-      alt="artwork by David Scher"
-      loading="lazy"
-      decoding="async"
-    >
-    <figcaption class="img-credit">Artwork by David Scher</figcaption>
-  </figure>
-  </div>
-</header>
+  <a class="skip-link" href="#content">Skip to content</a>
 
-  <main class="container">
-    <section>
-      <h1>Research and Publications</h1>
-      <p>My research is in algebraic topology, artificial intelligence, and quantum physics.</p>
-      <p>
-        I currently serve as the Executive Officer (Chair) of the 
-        <a href="https://www.gc.cuny.edu/mathematics">PhD program in Mathematics</a> at the <a href="https://www.gc.cuny.edu/">CUNY Graduate Center</a>.
-       </p>
-      <p>
-        I'm involved with
-        <a href="https://itsatcuny.org/">The Initiative for Theoretical Sciences</a>
-        at the CUNY Graduate Center. Check out the
-        <a href="https://itsatcuny.org/calendar?view=calendar">ITS calendar</a>
-        to see what's coming up.
-      </p>
-      <p>
-        Topology Book:
-        <a href="./TopologyBook/index.html"><em>Topology: A Categorical Approach</em></a>
-        is a graduate-level textbook that presents basic topology through the lens of category theory.
-      </p>
+  <header class="hero" aria-label="Artwork by David Scher">
+    <figure>
+      <img src="https://jterilla.github.io/banner-2400.avif" alt="Abstract artwork by David Scher" width="2400" height="1350" />
+      <div class="credit"><small>Artwork by David Scher</small></div>
+    </figure>
+  </header>
+
+  <main id="content" class="wrap">
+    <section class="intro" aria-label="Introduction">
+      <p class="tag">John Terilla - Mathematician</p>
+      <h1>Topology, AI, and Quantum</h1>
+      <p>I work at the interface of algebraic topology, artificial intelligence, and quantum physics. I’m the Executive Officer of the <a href="https://www.gc.cuny.edu/mathematics">PhD Program in Mathematics</a> at the <a href="https://www.gc.cuny.edu/">CUNY Graduate Center</a> and I’m involved with the <a href="https://itsatcuny.org/">Initiative for Theoretical Sciences</a>.</p>
     </section>
 
-    <section>
-      <h2>Selected Papers</h2>
-      <ul>
-        <li>
-          <a href="https://arxiv.org/abs/2412.03719">
-            From language models over tokens to language models over characters
-          </a>, with T. Vieira et al. <cite>ICML 2025</cite>.
-        </li>
-        <li>
-          <a href="https://arxiv.org/abs/2407.11606/">
-            The foundations of tokenization: statistical and computational concerns
-          </a>, with J.-L. Gastaldi et al. <cite>Proc. ICLR 2025</cite>.
-        </li>
-        <li>
-          <a href="https://www.ams.org/journals/notices/202402/rnoti-p174.pdf">
-            The structure of meaning in language
-          </a>, with T.-D. Bradley &amp; J.-L. Gastaldi. <cite>Notices of the AMS</cite>, Feb 2024.
-        </li>
-        <li>
-          <a href="https://doi.org/10.1007/s44007-022-00021-2">
-            An enriched category theory of language: from syntax to semantics
-          </a>, with T.-D. Bradley &amp; Y. Vlassopoulos. <cite>La Matematica</cite>, 2022.
-        </li>
-        <li>
-          <a href="https://iopscience.iop.org/article/10.1088/2632-2153/ab8731">
-            Modeling sequences with quantum states: a look under the hood
-          </a>, with T.-D. Bradley &amp; E. M. Stoudenmire. <cite>ML: Science &amp; Technology</cite>, 2020.
-        </li>
-        <li>
-          <a href="https://www.mdpi.com/1099-4300/21/12/1236/htm">
-            Probabilistic modeling with matrix product states
-          </a>, with J. Stokes. <cite>Entropy</cite> 2019, 21 1236.
-        </li>
-        <li>
-          <a href="matrixlanguage.pdf">
-            Language as a matrix product state
-          </a>, with V. Pestun &amp; Y. Vlassopolous. arXiv:1711.01416, 2017.
-        </li>
-        <li>
-          <a href="hpt_and_ns_arxiv.pdf">
-            Homotopy probability theory on a Riemannian manifold and the Euler equation
-          </a>, with G.-C. Drummond-Cole. <cite>New York Journal of Mathematics</cite>, 2017.
-        </li>
-        <li>
-          <a href="http://arxiv.org/abs/0807.1241">
-            Algebras over cobar coFrobenius
-          </a>, with G.-C. Drummond-Cole &amp; T. Tradler. <cite>J. Homotopy and Relat. Struc.</cite>, 2010.
-        </li>
-        <li>
-          <a href="https://academic.oup.com/imrn/article-abstract/2009/5/765/729453">
-            Quantum backgrounds and QFT
-          </a>, with T. Tradler &amp; J.-S. Park. <cite>IMRN</cite>, 2009.
-        </li>
-        <li>
-          <a href="https://arxiv.org/abs/0707.1290">
-            Smoothness theorem for differential BV algebras
-          </a>, J. Topology 1(3):693–702, 2008.
-        </li>
+    <hr class="divider">
+
+    <section id="papers" aria-labelledby="papers-h">
+      <h2 id="papers-h">Selected Papers</h2>
+      <ul class="list">
+        <li><a href="https://arxiv.org/abs/2412.03719">From language models over tokens to language models over characters</a> — with T. Vieira et al. <span class="meta">ICML 2025</span></li>
+        <li><a href="https://arxiv.org/abs/2407.11606">The foundations of tokenization: statistical and computational concerns</a> — with J.-L. Gastaldi et al. <span class="meta">ICLR 2025</span></li>
+        <li><a href="https://www.ams.org/notices/202402/rnoti-p174.pdf">The structure of meaning in language</a> — with T.-D. Bradley & J.-L. Gastaldi. <span class="meta">Notices of the AMS, Feb 2024</span></li>
+        <li><a href="https://link.springer.com/article/10.1007/s44007-022-00021-2">An enriched category theory of language: from syntax to semantics</a> — with T.-D. Bradley & Y. Vlassopoulos. <span class="meta">La Matematica, 2022</span></li>
+        <li><a href="https://iopscience.iop.org/article/10.1088/2632-2153/ab8731">Modeling sequences with quantum states: a look under the hood</a> — with T.-D. Bradley & E. M. Stoudenmire. <span class="meta">Machine Learning: Science & Technology, 2020</span></li>
+        <li><a href="https://www.mdpi.com/1099-4300/21/12/1236">Probabilistic modeling with matrix product states</a> — with J. Stokes. <span class="meta">Entropy, 2019</span></li>
+        <li><a href="https://arxiv.org/abs/1711.01416">Language as a matrix product state</a> — with V. Pestun & Y. Vlassopoulos. <span class="meta">arXiv:1711.01416, 2017</span></li>
+        <li><a href="https://nyjm.albany.edu/j/2017/23-46.html">Homotopy probability theory on a Riemannian manifold and the Euler equation</a> — with G.-C. Drummond-Cole. <span class="meta">New York J. Math., 2017</span></li>
+        <li><a href="https://tcms.org.ge/Journals/JHRS/xvolumes/2010/n1a2/v5n1a2hl.pdf">Algebras over cobar coFrobenius</a> — with G.-C. Drummond-Cole & T. Tradler. <span class="meta">J. Homotopy & Relat. Struct., 2010</span></li>
+        <li><a href="https://academic.oup.com/imrn/article-abstract/2009/5/765/729453">Quantum backgrounds and QFT</a> — with T. Tradler & J.-S. Park. <span class="meta">IMRN, 2009</span></li>
+        <li><a href="https://arxiv.org/abs/0709.2141">Smoothness theorem for differential BV algebras</a> — <span class="meta">J. Topology 1(3):693–702, 2008</span></li>
       </ul>
     </section>
 
-    <section>
-      <h2>PhD Students</h2>
-      <ul>
-        <li>
-          Samantha Jarvis (2025). Thesis: <em>A Novel Closed Monoidal Structure on the Nucleus of a Profunctor.</em>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/tyler-bryson-89555117">
-            Tyler Bryson
-          </a> (2023). Thesis: <em>An Explicit Construction of Sheaves in Context</em> → 
-          <a href="https://www.gene.com/scientists/our-scientists/prescient-design">
-            Prescient Design.
-          </a>
-        </li>
-        <li>
-          <a href="http://www.math3ma.com/">
-            Tai-Danae Bradley
-          </a> (2020). Thesis: <em>At the Interface of Algebra and Statistics</em> → Postdoc at 
-          <a href="https://x.company/">X — The Moonshot Factory.</a>
-        </li>
-        <li>
-          <a href="https://math.mit.edu/~jhirsh/index.html">
-            Joseph Hirsh
-          </a> (2013). Thesis: <em>Derived Deformation Theory</em> → NSF Postdoc at MIT.
-        </li>
-        <li>
-          <a href="https://drummondcole.com/gabriel/academic/">
-            Gabriel Drummond-Cole
-          </a> (2010). Thesis: <em>Homotopy Batalin-Vilkovisky algebras, trivializing circle actions, and moduli space</em> → NSF Postdoc at Northwestern.
-        </li>
+
+    <section aria-labelledby="students-h">
+      <h2 id="students-h">PhD Students</h2>
+      <ul class="list">
+        <li>Samantha Jarvis (2025). Thesis: <em>A Novel Closed Monoidal Structure on the Nucleus of a Profunctor</em>.</li>
+        <li><a href="https://www.linkedin.com/in/tyler-bryson-89555117">Tyler Bryson</a> (2023). Thesis: <em>An Explicit Construction of Sheaves in Context</em>.</li>
+        <li><a href="https://www.math3ma.com/">Tai-Danae Bradley</a> (2020). Thesis: <em>At the Interface of Algebra and Statistics</em>.</li>
+        <li><a href="https://www.linkedin.com/in/joseph-hirsh">Joseph Hirsh</a> (2013). Thesis: <em>Derived Noncommutative Deformation Theory</em>.</li>
+        <li><a href="https://drummondcole.com/">Gabriel Drummond-Cole</a> (2010). Thesis: <em>Homotopy Batalin–Vilkovisky algebras, trivializing circle actions, and moduli space</em>.</li>
       </ul>
     </section>
+
+ 
+    <section aria-labelledby="book-h">
+      <h2 id="book-h"><em>Topology — A Categorical Approach</em></h2>
+      <div class="book">
+        <img src="TopologyBook/TopologyACategoricalApproach.png" alt="Cover: Topology — A Categorical Approach" width="200" height="260" />
+        <div>
+          <p>A graduate-level textbook that presents basic topology from the perspective of category theory. Chapter PDFs are available open access.</p>
+          <p><a class="link" href="TopologyBook/">Book page →</a></p>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer class="site-footer container">
-    <p>© 2025 John Terilla. All rights reserved.</p>
+
+  <footer class="wrap">
+    <div class="footer-row">
+      <div>© <span id="y">2025</span> John Terilla</div>
+      <div><a href="mailto:jterilla@gc.cuny.edu">jterilla@gc.cuny.edu</a></div>
+    </div>
   </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
