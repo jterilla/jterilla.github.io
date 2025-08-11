@@ -1,106 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Topology: A Categorical Approach by John Terilla">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Topology: A Categorical Approach</title>
-  <link rel="preload" href="../fonts/inter.css" as="style">
-  <link rel="stylesheet" href="../style.css?v=20250806">
-  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Topology — A Categorical Approach</title>
+  <meta name="description" content="A graduate-level textbook that presents basic topology from the perspective of category theory. Open-access chapters, videos, and reviews." />
+  <link rel="canonical" href="https://jterilla.github.io/TopologyBook/" />
+<style>
+:root{
+  --bg:#ffffff;--ink:#0b0c0f;--muted:#5a6270;--link:currentColor;--maxw:960px
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0b0c0f;--ink:#e8eaef;--muted:#b2b8c4}
+}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+.skip-link{position:absolute;left:-999px;top:-999px}
+.skip-link:focus{left:16px;top:16px;background:#ffd166;color:#000;padding:.5rem .75rem;border-radius:.5rem;text-decoration:none}
 
-  <!-- quick page-specific styles for the cover gallery -->
-  <style>
-    .cover-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .cover-gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  </style>
-</head>
+/* Home full-bleed hero only (won't affect the book page) */
+header.hero{margin:0}
+header.hero figure{margin:0}
+header.hero img{display:block;width:100%;height:clamp(280px,55vh,560px);object-fit:cover}
+.credit{position:relative}
+.credit small{position:absolute;right:.75rem;bottom:.5rem;background:rgba(0,0,0,.45);color:#fff;padding:.2rem .5rem;border-radius:.4rem;font-size:.8rem}
+
+/* Book hero: cover + text grid */
+.book-hero{display:grid;gap:1.25rem;grid-template-columns:140px 1fr;align-items:start;margin:1.25rem 0}
+.book-hero h1 {
+  margin: 0 0 .35rem;   /* remove the default top margin */
+  line-height: 1.15;    /* optional: tighter heading */
+}
+.book-hero img{width:140px;height:auto;display:block}
+@media(max-width:720px){.book-hero{grid-template-columns:1fr}.book-hero img{width:160px}}
+
+section{padding:1.25rem 0}
+h2{font-size:1.3rem;margin:0 0 .5rem}
+.meta{color:var(--muted);text-decoration:none}
+
+a{color:var(--link);text-decoration:underline;text-decoration-thickness:.1em;text-underline-offset:.22em;text-decoration-skip-ink:auto}
+
+.list{list-style:none;padding:0;margin:0}
+.list li{padding:.4rem 0}
+.list li+li{margin-top:.2rem}
+
+.divider{border:0;height:1px;background:color-mix(in oklab,var(--ink) 18%,transparent);margin:.5rem 0 1.25rem}
+
+.grid{display:grid;gap:1rem}
+@media(min-width:920px){.grid.two{grid-template-columns:1fr 1fr}}
+
+/* grouped action links */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;               /* space between pills */
+}
+
+/* pill-style links */
+.actions a.action {
+  display: inline-block;
+  padding: .35rem .6rem;
+  border: 1px solid color-mix(in oklab, var(--ink) 20%, transparent);
+  border-radius: .4rem;
+  text-decoration: none;    /* keep inline links underlined; pills are not */
+  background: color-mix(in oklab, var(--ink) 3%, transparent);
+}
+
+.actions a.action:hover,
+.actions a.action:focus {
+  background: color-mix(in oklab, var(--ink) 8%, transparent);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.crumb { padding: .5rem 0 .25rem; }
+.crumb a {
+  color: inherit;                  /* black/white like your other links */
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  text-decoration-thickness: .1em;
+}
+.crumb a:focus { outline: 3px solid currentColor; outline-offset: 2px; }
+
+</style>
+
 <body>
-<a href="#main" class="skip-link">Skip to content</a>
-  <header>
-  <nav class="global-nav">
-    <div class="container">
-      <a href="../index.html">Home</a>
-      <a href="../contact.html">Contact</a>
-      <span class="current">Topology Book</span>
-    </div>
-  </nav>
+  <a class="skip-link" href="#content">Skip to content</a>
 
-    <div class="cover-gallery container">
-      <figure>
-        <img
-          src="TopologyACategoricalApproach.png" 
-          alt="Cover of Topology: A Categorical Approach (English edition)"
-          loading="lazy"
-          decoding="async"
-        >
-      </figure>
-      <figure>
-        <img
-          src="TopologyACategoricalApproach_jp.png"
-          alt="表紙 トポロジー：カテゴリー的アプローチ (Japanese translation)"
-          loading="lazy"
-          decoding="async"
-        >
-    	</figure>
-    </div>
-  </header>
+  <main id="content" class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+  <a href="/">← Home</a>
+</nav>
 
-  <main class="container">
-    <section>
-      <h1>Topology: A Categorical Approach</h1>
-      <p>
-        <a href="https://mitpress.mit.edu/books/topology"><em>Topology: A Categorical Approach</em></a> is a graduate-level textbook that presents basic topology from the perspective of category theory.</p>  
-      </p>
+<section aria-label="Hero">
+      <div class="book-hero">
+        <img src="TopologyACategoricalApproach.png" alt="Cover: Topology — A Categorical Approach" width="200" height="260" />
+        <div>
+          <h1>Topology — A Categorical Approach</h1>
+          <p>A graduate-level textbook that presents basic topology from the perspective of category theory.</p>
+          <p class="actions">
+            <a class="action" href="https://topology.mitpress.mit.edu/">Open access: chapter PDFs →</a>
+            <a class="action" href="https://mitpress.mit.edu/9780262539357/topology/">Buy from MIT Press →</a> 
+            <a class="action" href="https://www.youtube.com/@topology_categorical">YouTube@topology_categorical</a>
+          </p>
+          <p class="meta">English edition cover art by <a href="https://www.londontsai.com/">London Tsai</a>.</p>
+        </div>
+      </div>
     </section>
-<p>Chapter pdfs are available for free: <a href="https://topology.mitpress.mit.edu/">open access version</a>.</p>
 
-<p>English edition cover art by <a href="https://www.londontsai.com/">London Tsai</a>.</p>
+    <section class="grid two">
+      <section class="card" aria-labelledby="chapters-h">
+        <h2 id="chapters-h">Chapters (open access)</h2>
+        <p><a href="https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/12486/Bradley_TOC.pdf?dl=1">Table of contents</a>.</p>
+        <ol class="list">
+          <li><strong>0.</strong> <a href="https://assets.pubpub.org/pa2m11tj/61597354865598.pdf">Preliminaries</a></li>
+          <li><strong>1.</strong> <a href="https://assets.pubpub.org/fkoo9e9w/01597354930146.pdf">Examples and Constructions</a></li>
+          <li><strong>2.</strong> <a href="https://assets.pubpub.org/58cq0vd2/21597354958125.pdf">Connectedness and Compactness</a></li>
+          <li><strong>3.</strong> <a href="https://assets.pubpub.org/rtjviv9d/21597354989864.pdf">Limits of Sequences and Filters</a></li>
+          <li><strong>4.</strong> <a href="https://assets.pubpub.org/gsroaf64/31597355027339.pdf">Categorical Limits and Colimits</a></li>
+          <li><strong>5.</strong> <a href="https://assets.pubpub.org/6d1dqgg9/51597355090422.pdf">Adjunctions and the Compact-Open Topology</a></li>
+          <li><strong>6.</strong> <a href="https://assets.pubpub.org/b5lwswkt/51597355121950.pdf">Paths, Loops, Cylinders, Suspensions, …</a></li>
+        </ol>
+      </section>
 
+      <section class="card" aria-labelledby="videos-h">
+        <h2 id="videos-h">Playlist</h2>
+        <p>Short videos that supplement the material.</p>
+        <ol class="list">
+          <li><a href="https://www.youtube.com/watch?v=WdIVpbOKyM8">What is topology?</a></li>
+          <li><a href="https://www.youtube.com/watch?v=xMmQrqdOkwI">The subspace topology</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lF-P3elsEYA">Paths</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3AjnafqDK-c">Compact and Hausdorff</a></li>
+          <li><a href="https://www.youtube.com/watch?v=PonPdXzfoGM">Filters and Ultrafilters (Part I: no topology)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=MkO6jnxXlww">Filters and Ultrafilters (Part II: convergence and topological properties)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=wWIkas5_tHc">Categorical limits and colimits are unique</a></li>
+          <li><a href="https://www.youtube.com/watch?v=eA6SoQaLJ00">Compactifications</a></li>
+          <li><a href="https://www.youtube.com/watch?v=FHsY7JOcCvA">Exponential Topologies</a></li>
+          <li><a href="https://www.youtube.com/watch?v=VoyDxUIq64c">The Seifert Van Kampen Theorem</a></li>
+          <li><a href="https://www.youtube.com/watch?v=-VCtrIDkzqU">Covering Spaces (Part I: intro and based covers)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=uZMsA1uJ7Zk">The category of G-Sets</a></li>
+          <li><a href="https://www.youtube.com/watch?v=OgXae1IA3uE">Covering Spaces (Part II: the big picture)</a></li>
+        </ol>
+      </section>
+    </section>
 
-<h2 style="margin-top:15px">Videos</h2>
-	<p>Here are some short videos that supplement the material in the book.</p>
-	<ol>
-		<li><a href="https://youtu.be/WdIVpbOKyM8">What is topology?</a></li>
-
-		<li><a href="https://youtu.be/xMmQrqdOkwI">The subspace topology</a></li>
-
-		<li><a href="https://youtu.be/lF-P3elsEYA">Paths</a></li>
-
-		<li><a href="https://youtu.be/3AjnafqDK-c">Compact and Hausdorff</a></li>
-
-		<li><a href="https://youtu.be/PonPdXzfoGM">Filters and Ultrafilters (Part I: no topology)</a></li>
-
-		<li><a href="https://youtu.be/MkO6jnxXlww">Filters and Ultrafilters (Part II: convergence and topological properties)</a></li>
-
-		<li><a href="https://youtu.be/wWIkas5_tHc">Categorical limits and colimits are unique</a></li>
-	<li><a href="https://youtu.be/eA6SoQaLJ00">Compactifications</a></li>
-	<li><a href="https://youtu.be/FHsY7JOcCvA">Exponential Topologies</a></li>
-<li><a href="https://www.youtube.com/watch?v=VoyDxUIq64c">The Seifert Van Kampen Theorem</a></li>
-<li><a href="https://youtu.be/-VCtrIDkzqU">Covering Spaces (Part I: intro and based covers)</a></li>
-<li><a href="https://www.youtube.com/watch?v=uZMsA1uJ7Zk">The category of G-Sets</a></li>
-	<li><a href="https://youtu.be/OgXae1IA3uE">Covering Spaces (Part II: the big picture)</a></li>
-</ol>
-<p>These videos are available on the channel <a href="https://www.youtube.com/@topology_categorical">YouTube@topology_categorical</a>.</p>
- 
-
- <h2 style="margin-top:15px">Reviews</h2>
-  <ul><li>AMS Notices <a href="https://www.ams.org/journals/notices/202208/rnoti-p1383.pdf">Book Review</a> from Septebmer, 2022.</li>
-  <li><a href="https://www.maa.org/press/maa-reviews/topology-a-categorical-approach">MAA Reviews</a> from July, 2021.</li>
-</ul>
+    <section class="card" aria-labelledby="reviews-h">
+      <h2 id="reviews-h">Reviews</h2>
+      <ul class="list">
+        <li><a href="https://jointmathematicsmeetings.org/journals/notices/202208/noti2521/noti2521.html?adat=September+2022&cat=none&pdffile=rnoti-p1383.pdf&pdfissue=202208&trk=2521&type=.html">Notices of the AMS (Sept 2022)</a></li>
+        <li><a href="https://maa.org/book-reviews/topology-a-categorical-approach/">MAA Reviews (July 2021)</a></li>
+      </ul>
+    </section>
   </main>
-<footer class="site-footer container">
-    <p>© 2025 John Terilla. All rights reserved.</p>
-  </footer>
 </body>
 </html>
