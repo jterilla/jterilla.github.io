@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fancyhdr,enumitem,tikz,tikz-cd,xcolor}
+\usepackage[top=1in]{geometry}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows,matrix,cd,decorations.markings,positioning}
+%\addtolength{\textwidth}{1in}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{problem}{}
+\newcommand{\bp}{\begin{problem}}
+\newcommand{\ep}{\end{problem}\bigskip}
+\theoremstyle{theorem}
+\newtheorem*{hint*}{Hint}
+\newtheorem*{answer}{Answer}
+
+\DeclareMathOperator{\id}{id}
+\newcommand{\R}{\mathbb{R}}% the real numbers
+\newcommand{\C}{\mathbb{C}}% the complex numbers
+\newcommand{\Z}{\mathbb{Z}}% 
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot[R,C,L]{}
+\fancyhead[R]{\large \textbf{Fall 2025}}
+\fancyhead[L]{\large \textbf{Topology HW 1}}
+
+
+
+\section*{A little algebraic topology}
+
+\bp 
+A \emph{retraction} (of $X$ onto $A$) is a continuous map  $r:X\to A$
+ with  $r i=\mathrm{id}_A$ where $i:A\hookrightarrow X$ is the inclusion:
+ \[
+\begin{tikzcd}[column sep=large]
+A \arrow[r, "i", hook]
+  \arrow[rr, bend right=30, "\mathrm{id}_A"']
+& X \arrow[r, "r"] & A
+\end{tikzcd}
+\]
+Let $D^{n+1}=\{x \in \R^{n+1}: |x|\leq 1\}$ and $S^n=\{x \in \R^{n+1}:|x|=1\}$.  Prove that there is no retraction of $D^{n+1}$ onto $S^n$.
+\ep
+
+\section*{A little set theory}
+
+\bp Let $X$ and $Y$ be sets and $f:X\to Y$.  Some people define $f$ to be surjective iff \[\text{for all }y\in Y \text{ there exists }x\in X \text{ with } fx=y\] and define $f$ to be injective iff \[\text{for all }x,x' \in X \text{ if }x\neq x' \text{ then } fx\neq fx'.\]
+Use these definitions of surjective and injective to prove:
+\begin{enumerate}[label=(\alph*),series=qs]
+  \item $f$ is surjective iff $f$ is right-cancellable.
+  \item $f$ is injective iff $f$ is left-cancellable.
+  \item $f$ is surjective iff $\mathsf{Set}(Y,Z)\overset{f^*}{\to} \mathsf{Set}(X,Z)$ is injective for all $Z$.
+  \item $f$ is injective iff $\mathsf{Set}(Z,X)\overset{f_*}{\to} \mathsf{Set}(Z,Y)$ is injective for all $Z$.
+\end{enumerate}
+
+\begin{center}
+  \emph{\small (danger below this line)}\\[-0.4ex]
+\end{center}
+
+\begin{enumerate}[label=(\alph*),resume=qs]
+  \item $f$ is surjective iff $f$ is right-invertible.
+  \item $f$ is injective iff $f$ is left-invertible.
+  \item $f$ is injective iff $\mathsf{Set}(Y,Z)\overset{f^*}{\to} \mathsf{Set}(X,Z)$ is surjective for all $Z$.
+  \item $f$ is surjective iff $\mathsf{Set}(Z,X)\overset{f_*}{\to} \mathsf{Set}(Z,Y)$ is surjective for all $Z$.
+  \item If $f$ has a unique left inverse then it is (two-sided) invertible.
+  \item If $f$ has a unique right inverse then it is (two-sided) invertible.
+\end{enumerate}
+\ep
+
+
+
+
+\section*{A little point-set topology}
+
+\bp Let $(X,d)$ be a metric space.  Define a set $U\subset X$ to be \emph{open} iff for all $x\in U$ there exists $\epsilon>0$ so that for all $x'\in X$ if $d(x,x')<\epsilon$ then $x' \in U$.
+\begin{enumerate}[label=(\alph*)]
+  \item Prove that the arbitrary union of open sets is open.
+  \item Prove that the intersection of finitely many open sets is open.
+  \item Prove $\emptyset$ and $X$ are both open.
+\end{enumerate}
+\ep
+
+\bp A function $f:X\to Y$ between two metric space is continuous iff for all $x \in X$ and for all $\epsilon >0$ there exists a $\delta>0$ so that if $d_X(x,x')<\delta$ then $d_Y(fx,fx')<\epsilon.$. Prove that $f$ is continuous iff $f^{-1}(U)$ is open in $X$ whenever $U$ is open in $Y$.
+\ep
+
+\end{document}

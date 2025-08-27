@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MATH 70700: Topology — Fall 2025 — John Terilla</title>
+  <meta name="description" content="Course blog for MATH 70700 (Topology) at the CUNY Graduate Center. Syllabus, entries, homework, and resources." />
+  <link rel="canonical" href="https://jterilla.github.io/courses/phd-topology-f25/" />
+  <style>
+    /* ——— Theme tokens (mirrors homepage) ——— */
+    :root {$1--ring: 2px solid var(--accent);
+      --radius: .75rem; /* set to 0 for square cards, or .75rem for rounded */
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0b0c0f; --ink:#e8eaef; --muted:#b2b8c4; --accent:#ffd591; --link: currentColor; --card-bg: color-mix(in oklab, var(--ink) 6%, transparent); --card-bd: 1px solid color-mix(in oklab, var(--ink) 18%, transparent); }
+    }
+
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; }
+
+    /* a11y */
+    .skip-link { position:absolute; left:-999px; top:-999px; }
+    .skip-link:focus { left: 16px; top: 16px; background: #ffd166; color:#000; padding:.5rem .75rem; border-radius:.5rem; text-decoration:none; }
+
+    /* Header */
+    header { border-bottom: 1px solid rgba(127,127,127,.2); }
+    .top { display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding:.75rem 0; }
+    .crumb { color: var(--muted); text-decoration: none; }
+    .crumb:focus { outline: var(--ring); outline-offset: 2px; border-radius: 4px; }
+
+    /* Title block */
+    .intro { padding: 1.25rem 0 .25rem; }
+    .intro h1 { font-size: clamp(1.8rem, 3vw + 1rem, 2.4rem); margin: 0; letter-spacing:.2px; }
+    .tag { color: var(--muted); margin:.15rem 0 .75rem; }
+
+    .meta-row { display:flex; flex-wrap:wrap; gap:.5rem; margin: .5rem 0 1rem; }
+    .pill { display:inline-flex; align-items:center; gap:.5rem; border: var(--card-bd); background: var(--card-bg); border-radius: 999px; padding:.3rem .65rem; font-size:.95rem; }
+    .pill b { font-weight:600; }
+
+    /* Layout */
+    main { display:grid; grid-template-columns: 1fr; gap: 1.25rem; }
+     }
+
+    /* Entries */
+    .stream { display:grid; gap: 1rem; }
+    article.entry {$1border-radius: var(--radius);$2}
+    .entry header { border:0; padding:0; margin:0 0 .3rem; }
+    .entry h2 { font-size: 1.2rem; margin:.1rem 0; }
+    .entry .sub { color: var(--muted); font-size:.95rem; }
+    .entry .anchor { text-decoration:none; opacity:.8; }
+    .entry .anchor:focus { outline: var(--ring); outline-offset: 2px; border-radius: 4px; }
+
+    .list { list-style: none; padding:0; margin:0; }
+    .list li { padding:.35rem 0; }
+
+    /* Links */
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+    a:focus { outline: var(--ring); outline-offset: 2px; border-radius: 4px; }
+
+    footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 1.5rem; }
+    .footer-row { display:flex; justify-content:space-between; align-items:center; padding:1rem 0 2rem; color: var(--muted); }
+
+    /* Print — expand details, remove chrome */
+    @media print {
+      nav.toc, .crumb, .meta-row, footer { display:none !important; }
+      body { color:#000; }
+      .entry { break-inside: avoid; }
+    }
+  :root { --link: #155EEF; }
+    nav.toc { display:none !important; }
+    @media (min-width:980px){ main { grid-template-columns: 1fr; } }
+    @media (prefers-color-scheme: dark){ :root { --link: currentColor; } }
+      /* Reinstate shaded entry cards */
+    .stream { display:grid; gap: 1rem; }
+    article.entry { border: var(--card-bd); background: var(--card-bg); border-radius: var(--radius); padding: 1rem; }
+    /* Ensure the tokens exist; later definitions safely override earlier ones */
+    :root { --card-bg: color-mix(in oklab, var(--ink) 3%, transparent); --card-bd: 1px solid color-mix(in oklab, var(--ink) 12%, transparent); }
+    @media (prefers-color-scheme: dark) { :root { --card-bg: color-mix(in oklab, var(--ink) 6%, transparent); --card-bd: 1px solid color-mix(in oklab, var(--ink) 18%, transparent); } }
+      /* Card styling fix (broad browser support) */
+    :root {
+      --card-bg: rgba(11,12,15,.04); /* light subtle gray */
+      --card-bd: 1px solid rgba(127,127,127,.18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --card-bg: rgba(232,234,239,.06); --card-bd: 1px solid rgba(232,234,239,.22); }
+    }
+    .stream { display:grid; gap: 1rem; }
+    article.entry {
+      background: rgba(11,12,15,.04); /* fallback */
+      background: var(--card-bg);      /* variable */
+      border: 1px solid rgba(127,127,127,.18); /* fallback */
+      border: var(--card-bd);                       /* variable */
+      border-radius: var(--radius, .75rem);
+      padding: 1rem;
+    }
+      /* Breathing room on small & large screens */
+    .wrap { padding-left: clamp(1rem, 4vw, 2rem); padding-right: clamp(1rem, 4vw, 2rem); }
+  </style>
+
+  <!-- enable MathJax
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  -->
+
+  <!-- Schema.org Course data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "MATH 70700: Topology",
+    "courseCode": "MATH 70700",
+    "description": "First semester of a two‑part topology course with a categorical perspective.",
+    "provider": {"@type":"CollegeOrUniversity","name":"CUNY Graduate Center","sameAs":"https://www.gc.cuny.edu/"},
+    "educationalLevel": "PhD",
+    "instructor": {"@type":"Person","name":"John Terilla","sameAs":"https://jterilla.github.io/"},
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "name": "MATH 70700 — Fall 2025",
+      "courseMode": "InPerson",
+      "startDate": "2025-09-02",
+      "endDate": "2025-12-15",
+      "location": {"@type":"Place","name":"Room 6417, CUNY Graduate Center"},
+      "schedule": "TU TH 09:30-11:00"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <div class="wrap top">
+      <a class="crumb" href="../../index.html">← jterilla.github.io</a>
+      <a class="crumb" href="#course-info">Course Info (first entry) ↓</a>
+    </div>
+  </header>
+
+  <main id="content" class="wrap">
+    
+
+    <div>
+      <!-- STREAM -->
+      <section id="entries" aria-labelledby="entries-h">
+        <h1 id="entries-h">Topology — Fall 2025</h1>
+        <div class="stream">
+
+      <!-- Entry 2 — HOMEWORK 1 -->
+          <article class="entry" id="2025-08-27-hw1" aria-labelledby="2025-08-27-hw1-h">
+            <header>
+              <h2 id="2025-08-27-hw1-h">Homework 1</h2><!-- <a class="anchor" href="#2025-08-27-hw1" aria-label="Link to this entry">¶</a> -->
+              <div class="sub">Posted Aug 27, 2025 • Due Thursday at the start of class</div>
+            </header>
+            <div class="content">
+              <p class="sub">Here's the homework assignment I passed out in class yesterday.  In LaTeX: <a href="hw/hw1.tex">hw1.tex</a> and pdf: <a href="hw/hw1.pdf">hw1.pdf</a>.  Solutions in LaTeX preferred, handwritten okay.  If you wrote your solutions in LaTeX, you can email a pdf.  Turn in handwritten solutions in class.  Collaboration is encouraged!  Please write your own solutions and acknowledge collaborators.  </p>
+            </div>
+          </article>
+
+          <!-- Entry 1 — COURSE INFO (top) -->
+          <article class="entry" id="course-info" aria-labelledby="course-info">
+            <header>
+              <h2 id="course-info">Course information & description</h2>
+              <div class="sub">Posted Aug 27, 2025</div>
+            </header>
+            <div class="content">
+              <p><b>MATH 70700: Topology</b><br>
+                <b>When/Where:</b> Tuesday & Thursday, 9:30 AM – 11:00 AM, Room 6417<br>
+                <b>Instructor:</b> Prof. J. Terilla • <b>Credits:</b> 4.5</p>
+
+              <p><b>Course Description.</b> This is the first semester of a two-part course in topology. We begin with a brisk treatment of point-set topology, covering concepts such as connectedness, separation, and compactness. These ideas form the topological foundations essential in fields ranging from analysis to number theory.</p>
+
+              <p>Beyond fluency with these core ideas, this course is designed to prepare students for success in algebraic topology. To that end, we emphasize the categorical perspective early on, using point-set topology as a setting in which to develop the structural thinking that algebraic topology and many areas of contemporary mathematics require. Through theory and examples, students will gain technical tools and conceptual insight, building a foundation that supports deeper study in topology and related areas.</p>
+
+              <p><b>Text.</b> <em>Topology: A Categorical Approach</em> (MIT Press). <a href="https://mitpress.mit.edu/books/topology">Publisher page →</a></p>
+              <p>In addition to the material in the book, particular attention will be spent on the theory of covering spaces.  Open-access chapter PDFs and additional materials are available here: <a href="https://jterilla.github.io/TopologyBook/index.html">Book page →</a></p>
+
+              <p><b>Pre‑requisites.</b> A good working knowledge of linear algebra, abstract algebra, and undergraduate real analysis.</p>
+
+              <p><b>Office hours.</b> Tue 1:15–2:15 and Thu 11:00–12:00 in 4208.01 (or the math lounge 4214 if we need more board space); and by appointment.</p>
+            </div>
+          </article>
+
+          
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <br>
+
+  <footer class="wrap">
+    <div class="footer-row">
+      <div>© <span id="y">2025</span> John Terilla</div>
+      <div><a href="mailto:jterilla@gc.cuny.edu">jterilla@gc.cuny.edu</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
