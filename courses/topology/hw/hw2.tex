@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fancyhdr,enumitem,tikz,tikz-cd,xcolor}
+\usepackage[top=1in]{geometry}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows,matrix,cd,decorations.markings,positioning}
+%\addtolength{\textwidth}{1in}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{problem}{}
+\newcommand{\bp}{\begin{problem}}
+\newcommand{\ep}{\end{problem}\bigskip}
+\theoremstyle{theorem}
+\newtheorem*{hint*}{Hint}
+\newtheorem*{answer}{Answer}
+
+\DeclareMathOperator{\id}{id}
+\newcommand{\R}{\mathbb{R}}% the real numbers
+\newcommand{\C}{\mathbb{C}}% the complex numbers
+\newcommand{\Z}{\mathbb{Z}}% 
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot[R,C,L]{}
+\fancyhead[R]{\large \textbf{Fall 2025}}
+\fancyhead[L]{\large \textbf{Topology HW 2 - Due September 18}}
+
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Set}{\mathbf{Set}}
+
+
+
+
+\begin{definition*}
+A morphism $f:X\to Y$ in a category is a \emph{monomorphism} (mono) if $f\circ g=f\circ h$ implies $g=h$ for all $g,h:Z\to X$.  A morphism $f:X\to Y$ in a category is \emph{split} mono if there exists $g:Y\to X$ with $gf=\id_X$.  
+\end{definition*}
+\begin{definition*}
+A morphism $f:X\to Y$ in a category is an \emph{epimorphism} (epi) if $g\circ f=h\circ f\Rightarrow g=h$ for all $g,h:Y\to Z$. A morphism $f:X\to Y$ in a category is \emph{split} epi if there exists $g:Y\to X$ with $fg=\id_Y$.  
+\end{definition*}
+
+
+\bp 
+A subset $A$ of a topological space $X$ is \emph{dense} if and only if the smallest closed set containing $A$ is all of $X$.  
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $A$ is dense iff for every nonempty open set $U$ in $X$, $U\cap A \neq \emptyset$.  
+\item Prove that having a countable dense subset is a topological property (it's sometimes called \emph{second countable}.)
+\end{enumerate}
+\ep
+
+\begin{problem}
+On $\R^3$ define the \emph{Lumberjack metric} $d_L$ by
+\[
+d_L\big((x,y,z),(x',y',z')\big)=
+\begin{cases}
+|z-z'|, & \text{if } (x,y)=(x',y'),\\[2mm]
+|z|+\,\sqrt{(x-x')^2+(y-y')^2}\,+|z'|, & \text{otherwise.}
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove or disprove:  There is a countable dense subset of $\R^3$ with the lumberjack topology.
+\item 
+Prove that the $d_L$–topology is strictly finer than the Euclidean topology.
+\item Prove or disprove:  The inclusion of $i:\R^2 \to \R^3$ defined by $i(x,y)=(x,y,0)$ defines an embedding of $\R^2$ with the usual topology into $\R^3$ with the lumberjack topology.
+
+
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem} Monomorphisms in $\Top$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that monomorphisms in $\Top$ are exactly the injective continuous maps.
+\item Split monos in $\Top$ are given many names:  \emph{embeddings, sections, inclusions that have retractions}...  Just give a couple of example  of monomorpisms in $\Top$ that are not split.
+\end{enumerate}
+\end{problem}
+
+\bp Define the \emph{Sierpiński space} $\mathbb S=\{0,1\}$ with topology $\{\varnothing,\{1\},\{0,1\}\}$.  
+\begin{enumerate}[label=(\alph*)]
+\item Prove that continuous maps $Y\to\mathbb S$ are exactly characteristic functions of open sets of $Y$.  That is, a function $\chi:Y\to\mathbb S$ is continuous iff $\chi^{-1}(\{1\})$ is open in $Y$.
+\item Let $f:X\to Y$ be a set function between spaces $X$ and $Y$. Show that $f$ is continuous iff for every continuous $\chi:Y\to\mathbb S$, the composite $\chi\circ f:X\to\mathbb S$ is continuous. 
+\end{enumerate}
+\ep 
+
+\pagebreak
+
+\begin{problem} Epimorphisms in $\Top$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that if $f:X\to Y$ is an epi in $\Top$, then $f(X)$ is dense in $Y$. \emph{Hint:} Suppose $f(X)$ is not dense and construct distinct continuous maps $g,h:Y\to\mathbb S$ with $g\circ f=h\circ f$.
+\item Give an explicit example showing that there exists a continuous $f:X\to Y$ with dense image that is \emph{not} epi in $\Top$. 
+\end{enumerate}
+\end{problem}
+
+\begin{problem}More reasons the category $\Top$ is different than $\Set$.
+\begin{enumerate}[label=(\alph*)]
+\item In the category of sets, if there exists a monomorphism $f:X \to Y$ and a monomorphism $g:Y \to X$ then there exists an isomorphism $h:X \to Y$ (this is called the Canter-Schroder-Bernstein theorem).  Prove, by example, that there is no such theorem in topology.
+\item In the category of sets, if $f:X \to Y$ is both a monomorphism and an epimorphism then $f$ is an isomorphism.  Prove, by example, that there are continuous functions $f:X\to Y$ that are both monic and epic but are not isomorphisms.
+\end{enumerate}
+\end{problem}
+
+
+\bp Split epimorphisms are called retracts or retractions.  Prove that split epimorphisms in $\Top$ are precisely surjective quotient maps.
+\ep
+
+
+\begin{problem} Let $X$ and $Y$ be topological spaces and let $A\subseteq X$ and $B\subseteq Y$ be subsets.  There are two ostensibly different ways to put a topology on the set $A\times B$.
+
+\begin{enumerate}[label=(\alph*)]
+\item First give $A$ and $B$ the \emph{subspace} topologies from $X$ and $Y$ and then put the product topology on $A\times B$. 
+\item Second, give the subset $A\times B$ of $X\times Y$ the subspace topology inherited from the product topology on $X\times Y$.
+\end{enumerate}
+Prove or disprove:  these two constructions yield the same topology.
+\end{problem}
+
+\begin{problem}Let $q:X\to Y$ be a surjection and let $Z$ any space.  There are two ostensibly different ways to get a topology on $Y\times Z$.  
+\begin{enumerate}[label=(\alph*)]
+\item First take the quotient topology on $Y$ defined by $q$, then take the product with $Z$.
+\item Give $X\times Z$ the product topology and then give $Y\times Z$ the quotient topology defined by $q\times \id_Z:X \times Z \to Y \times Z.$
+\end{enumerate}
+
+% \begin{enumerate}[label=(\alph*)]
+% \item Describe the universal properties of these two constructions.
+% \item \textbf{Counterexample} 
+% Let $X=\mathbb{R}$, let $A=\{1/n:n\in\mathbb{N}\}$, and let $q$ collapse $A$ to a single point $*$, take $Z=\{0,1\}$ with the discrete topology...
+% \end{enumerate}
+Do you think these two constructions are the same?
+\end{problem}
+
+\end{document}
