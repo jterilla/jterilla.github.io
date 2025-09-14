@@ -1,0 +1,187 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fancyhdr,enumitem,tikz,tikz-cd,xcolor}
+\usepackage[top=1in]{geometry}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows,matrix,cd,decorations.markings,positioning}
+%\addtolength{\textwidth}{1in}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{problem}{}
+\newcommand{\bp}{\begin{problem}}
+\newcommand{\ep}{\end{problem}\bigskip}
+\theoremstyle{theorem}
+\newtheorem*{hint*}{Hint}
+\newtheorem*{answer}{Answer}
+
+\DeclareMathOperator{\id}{id}
+\newcommand{\R}{\mathbb{R}}% the real numbers
+\newcommand{\C}{\mathbb{C}}% the complex numbers
+\newcommand{\Z}{\mathbb{Z}}% 
+
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot[R,C,L]{}
+\fancyhead[R]{\large \textbf{Fall 2025}}
+\fancyhead[L]{\large \textbf{Topology HW 3}}
+
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\N}{\mathbb{N}}
+
+\paragraph{Instructions.}
+These are some fun problems mixing product topology and dynamics, with a few optional challenge items. Work on them over the next week or so.  Aim to have this \textbf{checked off by September 25}.
+
+\begin{itemize}
+\item I will not collect full written solutions to everything. We’ll discuss a few in class; others may reappear on future sets or exams.
+\item Discuss freely—working in a small group is encouraged. Please avoid AI tools; they tend to hand you the answers, which spoils the fun and the thrill of discovery.
+\item By Sept 25, choose \emph{either}: (a) a quick oral check during office hours; (b) email me a one-page summary of which problems you solved and any questions you still have; or (c) if you want written feedback, submit solutions to problems 2b, 3, 7b, 8b, and 12a.
+\end{itemize}
+
+\section*{The Cantor Space}
+
+Consider $\{0,1\}$ with the discrete topology.  The set $C=\{0,1\}^\N$ of binary sequences with the product topology is called the Cantor space.
+
+\bp Prove the following facts about the Cantor space.
+\begin{enumerate}[label=(\alph*)]
+\item $C\simeq C\times C$
+\item $C\simeq C \sqcup C$
+\item Prove that $C$ has no isolated points.
+\item $C$ is \emph{totally disconnected} meaning every connected components of $C$ is a singleton.
+\item $C$ is metrizable.  (Hint: use $d(x,y)=2^{-\min\{n:\ x_n\ne y_n\}}$.)
+\end{enumerate}
+\ep
+
+
+\bp Let $s:C \to C$ defined by $s(x_1, x_2, \ldots ) = x_2, x_3, \ldots$ be the backwards shift map.  Let $s^n$ denote the $n$-th iterate of $s$.  A point $x$ is \emph{periodic with period $n$} iff $s^n(x)=x$.  The \emph{least period} of a periodic point $x$ is the smallest positive integer $n$ for which $s^n(x)=x$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $s$ is continuous.
+\item Prove that the periodic points are dense in $C$.
+\item Prove that the number of points with least period $n$ are equal to 
+\[\sum_{d \vert n} \mu(d)2^{\frac{n}{d}}
+\]
+where $\mu$ is the M\"obius function from number theory.
+\item Can you find a point $x\in C$ that has a dense orbit?
+\end{enumerate}
+\ep
+
+\bp A function $f:X \to X$ is \emph{topologically mixing} if and only if for all nonempty open sets $U, V$ there exists an integer $N\in \N$ so that $f^n(U)\cap V \neq \emptyset$ for all $n\geq N$.  Prove that the shift map $s$ is topologically mixing.
+\ep
+
+
+\bp A homeomorphism $f:X \to X$ on a metric space is \emph{expansive} if and only if there exists a $\delta>0$ so that for all $x,y\in X$ there exists an $N\in \N$ so that $d(f^n(x),f^n(y))>\delta.$  Prove that the shift map $s$ is expansive.
+\ep
+
+\bp (Optional challenge) Look up the definition of topological entropy for a dynamical system and compute it for the shift map.
+\ep
+
+
+\section*{The $2$-adic integers}
+
+Consider the following diagram of discrete topological spaces 
+\[
+\Z/2\Z \xleftarrow{\;\pi_1\;} \Z/4\Z 
+\xleftarrow{\;\pi_2\;} \cdots 
+\xleftarrow{\;\pi_{n-1}\;}\Z/2^{n}\Z
+\xleftarrow{\;\pi_{n}\;} \Z/2^{n+1}\Z 
+\xleftarrow{\;\pi_{n+1}\;} \cdots
+\]
+where $\pi_n$ is reduction mod $2^n$.  The $2$-adic integers are defined to be the \emph{limit} of this diagram.  That is the subspace of the product defined as follows:
+\[\Z_2\ :=\ \lim \{\Z/2^{n+1}\xrightarrow{\;\pi_{n}\;} \Z/2^n \Z\}\ = \ \Big\{(x_n)_{n\ge1}\in\prod_{n\ge1}\Z/2^n\Z:\ x_n\equiv x_{n+1}\ (\mathrm{mod}\ 2^n)\Big\}.\]
+So $(1,3,3,11,11,43,107, \ldots)$, for example,  could be the beginning of a typical sequence in $\Z_2$.
+
+\bp 
+\begin{enumerate}[label=(\alph*)]
+\item Show $\Z_2$ is closed in $\prod \Z/2^n\Z$.
+\item Show $\Z_2$ is totally disconnected.
+\item Prove that $\Z_2$ has no isolated points.
+\item Prove that $\Z_2$ is metrizable. 
+\end{enumerate}
+\ep
+
+\bp Consider the map $T:\Z_2\to\Z_2$, $T(x)=x+1$.
+\begin{enumerate}[label=(\alph*)]
+\item Define a metric on $\Z_2$ by $d(x,y)=2^{-\min\{n:\ x_n\ne y_n\}}$.  Prove that $T$ is a homeomorphism and an isometry.
+\item Prove that the orbit of every point is dense in $\Z_2$ and that $T$ has no periodic points.
+\end{enumerate}
+\ep
+
+
+\bp Define a map $\Phi:C\to \Z_2$ from the Cantor Set to the $2$-adic integers as follows: \[\Phi_{\mathrm{seq}}\big((x_0,x_1,\ldots)\big) \;=\; (r_k)_{k\ge1},
+\]
+where
+\[
+r_k \;=\; \left(\,\sum_{n=0}^{k-1} x_n\,2^n\,\right) \mod {2^k} \;\in\; \Z/2^k\Z.
+\]
+So, for example $\Phi(1,1,0,1,0,0,\ldots) = (1, 3, 3, 11, \ldots )$.  To see this, look at 
+\begin{align*}
+1\times2^0 \mod 2 &= 1\\
+1\times2^0+1\times2^1\mod 4&=3\\
+1\times2^0+1\times2^1+0\times2^2\mod 8 &=3\\
+1\times2^0+1\times2^1+0\times2^2+1\times 2^3\mod 16 &= 11
+\end{align*}
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\Phi$ is a homeomorphism.
+\item Define the \emph{odometer} $\tau:C\to C$ to be $\tau=\Phi^{-1}T\circ \Phi$, i.e. the transport of the map $T$ via the isomorphism $\Phi$: 
+\[
+\begin{tikzcd}
+C \arrow[r, "\tau"] \arrow[d, "\Phi"] & C \arrow[d, "\Phi"] \\
+\Z_2 \arrow[r, "T"] & \Z_2
+\end{tikzcd}
+\]
+\end{enumerate}
+Explain how $\tau$ works explicitly as a map from $C\to C$.
+\ep
+
+
+
+\bp Prove that the odometer $\tau$ is not topologically mixing, and is not expansive.
+\ep
+
+
+\bp (Optional challenge) Look up the definition of topological entropy for a dynamical system and compute it for the odometer.
+\ep
+
+
+\section*{The torus}
+
+\bp The group $\Z^2$ acts on $\R^2$ by $(n,m)\cdot (x,y)\mapsto (x+n,y+m)$ defining an equivalence relation $(x,y)\sim(x+n,y+m)$ for $(n,m)\in \Z^2$.  Define the torus $T^2$ to be the quotient \[T^2:=\R^2/\Z^2.\]   Let $p:\R^2 \to T^2$ be the quotient map $(x,y)\mapsto [(x,y)].$  
+\begin{enumerate}[label=(\alph*)]
+\item Show that the map $\psi:\R^2 \to S^1\times S^1$ defined by $\psi:(x,y)\mapsto (e^{2\pi i x},e^{2\pi i y})$ induces a homeomorphism $\R^2/\Z^2 \xrightarrow{\;\cong\;} S^1\times S^1$.
+\item For any $2$ by $2$ matrix with integer entries $A\in M_2(\Z)$, define $f_A:T^2\to T^2$ by $f_A([v])=[Av]$. 
+\[
+\begin{tikzcd}
+\R^2 \arrow[r, "\scriptstyle A"] \arrow[d, "\scriptstyle p"] & \R^2 \arrow[d, "\scriptstyle p"] \\
+T^2 \arrow[r, "\scriptstyle f_A"] & T^2
+\end{tikzcd}
+\]
+ Check the details to understand why $f_A$ is well defined and continuous.
+\end{enumerate}
+\ep
+
+\bp Let $A=\begin{pmatrix}2&1\\[2pt]1&1\end{pmatrix}$ and $f=f_A$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that $f:T^2\to T^2$ is a homeomorphism.
+\item Find the periods of $\left[\left(0,0\right)\right]$,$\left[\left(0,\frac{1}{4}\right)\right]$, and $\left[\left(\frac{1}{5},\frac{2}{5}\right)\right]$.
+\item Compute the eigenvalues $\lambda>1$ and $\lambda^{-1}<1$ and corresponding eigenvectors $v^u,v^s\subset\R^2$.  Define lines $E^u=\R v^u$ and $E^s=\R v^s$.
+\item For any point $[x]\in T^2$, choose a lift $\tilde{x}\in \R^2$ and and define the \emph{unstable/stable lines through $[x]$} by
+\[
+W^u([x])=p(\tilde x+E^u),\qquad W^s([x])=p(\tilde x+E^s).
+\]
+Show these are independent of the choice of lift and $f$-invariant:
+$f(W^u([x]))=W^u(f([x]))$ and $f^{-1}(W^s([x]))=W^s(f^{-1}([x]))$.
+\item Prove that $f_A$ is expansive.
+\end{enumerate}
+\ep
+
+\bp (Optional challenge)  Again, $A=\begin{pmatrix}2&1\\[2pt]1&1\end{pmatrix}$ and $f=f_A$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that periodic points of $f$ are dense in $T^2$.
+\item Show that $f$ is topologically mixing.
+\end{enumerate}
+\ep
+
+\end{document}
