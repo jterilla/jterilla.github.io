@@ -47,10 +47,10 @@ Consider $\{0,1\}$ with the discrete topology.  The set $C=\{0,1\}^\N$ of binary
 
 \bp Prove the following facts about the Cantor space.
 \begin{enumerate}[label=(\alph*)]
-\item $C\simeq C\times C$
-\item $C\simeq C \sqcup C$
+\item $C\cong C\times C$
+\item $C\cong C \sqcup C$
 \item Prove that $C$ has no isolated points.
-\item $C$ is \emph{totally disconnected} meaning every connected components of $C$ is a singleton.
+\item $C$ is \emph{totally disconnected} meaning every connected component of $C$ is a singleton.
 \item $C$ is metrizable.  (Hint: use $d(x,y)=2^{-\min\{n:\ x_n\ne y_n\}}$.)
 \end{enumerate}
 \ep
@@ -68,7 +68,11 @@ where $\mu$ is the M\"obius function from number theory.
 \end{enumerate}
 \ep
 
-\bp A function $f:X \to X$ is \emph{topologically mixing} if and only if for all nonempty open sets $U, V$ there exists an integer $N\in \N$ so that $f^n(U)\cap V \neq \emptyset$ for all $n\geq N$.  Prove that the shift map $s$ is topologically mixing.
+\bp A homeomorphism $f:X \to X$ is \emph{topologically mixing} if and only if for all nonempty open sets $U, V$ there exists an integer $N\in \mathbb{Z}$ so that $f^n(U)\cap V \neq \emptyset$ for all $n\geq N$.  
+
+If $f:X \to X$ is any continuous function (not necessarily a homeomorphism), you can say $f$ is \emph{topologically forward mixing} if and only if for all nonempty open sets $U, V$ there exists an integer $N\in \mathbb{N}$ so that $f^n(U)\cap V \neq \emptyset$ for all $n\geq N$.  
+
+Prove that the shift map $s$ is topologically forward mixing.
 \ep
 
 
