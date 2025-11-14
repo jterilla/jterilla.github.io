@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fancyhdr,enumitem,tikz,tikz-cd,xcolor}
+\usepackage[top=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usetikzlibrary{arrows,matrix,cd,positioning,calc,arrows.meta,decorations.markings}
+%\addtolength{\textwidth}{1in}
+
+\tikzset{
+  singlehead/.style={-{Stealth[length=3mm]}},
+  doublehead/.style={
+    postaction={decorate,decoration={markings,
+      mark=at position 0.60 with {\arrow{Stealth[length=3mm]}},
+      mark=at position 0.85 with {\arrow{Stealth[length=3mm]}}
+    }}
+  }
+}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{problem}{}
+\newcommand{\bp}{\begin{problem}}
+\newcommand{\ep}{\end{problem}\bigskip}
+\theoremstyle{theorem}
+\newtheorem*{hint*}{Hint}
+\newtheorem*{answer}{Answer}
+
+\DeclareMathOperator{\id}{id}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\fix}{\mathrm{Fix}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot[R,C,L]{}
+\fancyhead[R]{\large \textbf{Fall 2025}}
+\fancyhead[L]{\large \textbf{Topology HW 6}}
+
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\bp If $X$ and $Z$ are locally compact Hausdorff, then for any space $Y$, the isomorphism of sets $\mathsf{Top}(Z \times X, Y)\to \mathsf{Top}(Z, \mathsf{Top}(X, Y))$ is a homeomorphsim of spaces.
+\ep
+
+
+\bp Let $X$ be compact and $Y$ be Hausdorff.  For a set map $f:X \to Y$, $f$ is continuous iff its graph $G=\{(x,f(x)\in X\times Y)\}$ is closed.
+\ep
+
+
+
+\bp It is a fact that you may prove or assume that\begin{quote}
+\emph{Every $n$-dimensional Hausdorff topological vector space is homeomorphic to $\R^n$ with its usual topology.}
+\end{quote}
+Your problem:  Let $V$ be a topological vector space and $f:V \to \R^n$ be linear.  Prove that $f$ is continuous iff $\ker(f)$ is compact.
+\ep
+
+\bp Let $X$ be a topological space.  There's a little logical universe contained in $X$.  A \emph{predicate} on $X$ is an open set $U\subseteq X$ or if you prefer, an open embedding of a topological space $U \hookrightarrow X$.  A predicate $U$ is \emph{true} at a point $x\in U$.  Entailment is containment $U \vdash V$ means $U\subseteq V$.  
+Conjunction  is intersection $U\wedge V:=U\cap V$, disjunction is union $U\vee V = U \cup V$, and implication is defined $U\Rightarrow V$ is defined to be the largest open set $W$ so that $W\cap U \subset V$.  The universally true proposition is $\top=X$, the universally false is $\bot=\varnothing$.  Negation is defined by $\neg U=U\Rightarrow\varnothing.$  
+\begin{enumerate}[label=(\alph*)]
+    \item Prove $U\wedge V \vdash W$ if and only if $U \vdash V\Rightarrow W$.  
+    \item Prove that $U\wedge(U\Rightarrow V)\vdash V$. 
+    \item Here's a way to interpret the previous statement:  if we make a category out of $X$ where the objects are open sets and the morphisms are inclusions, then for each fixed $U$, the map $V\mapsto V\wedge U$ has a right adjoint $W \mapsto U\Rightarrow W$.  
+  
+  \item Prove that $U\vee \neg U=X\setminus \partial U$ and $\neg \neg U=\mathrm{int}(U)$.
+  
+  \item Prove that $\neg \neg U =U$ and $U\vee \neg U =\top$ iff $X$ is discrete.
+\end{enumerate}
+\ep 
+
+
+\bp Let $X$ be compact and $Y$ be a metric space.  We say a family of functions $F\subseteq \mathsf{Top}(X,Y)$ is equicontinuous iff for all $x\in X$ and for all $\epsilon >0$ there exists a  neighborhood $U$ of $x$ so that \[d(f(x),f(x'))\leq \epsilon \text{ for all }x, x' \in U \text{ and for all }f\in F.\]
+For this problem suppose $F$ is an equicontinuous family of functions.  For a compact set $K\subset X$ and an open set $U\subset Y$, let $S(K,U)$ denote the open set in the product topology given by \[S(K,U) =\{f:X\to Y:f(K)\subseteq U\}.\] 
+\begin{enumerate}[label=(\alph*)]
+  \item Suppose $F$ is equicontinuous.  Prove that if $K\subseteq X$ is compact and $U\subseteq Y$ is open, then for any $f\in F$ with $f(K)\subseteq U$, there exists a set $V$ that is open in the product topology with $f\in V\subseteq S(K,U)\cap F.$
+\item Let $F$ be an equicontinuous family of functions from $X$ to $Y$.  Prove that $F$ has compact closure in the product topology iff for each $x\in X$, the sets $F_x=\{f(x):x\in X\}$ all have compact closure in $X$.
+\item Prove that a subset of functions $F$ has compact closure in the topology induced by the sup norm if and only if it is equicontinuous and pointwise bounded.
+\item Give a counterexample:  Let $X$ be compact, $(Y, d)$ be a metric space and $\{f_n\}$ be a sequence of functions in $\mathsf{Top}(X, Y)$. If $\{ f_n\}$ is equicontinuous and if for each $x \in X$ the set $\{ f_n(x)\}$ is bounded, then $\{ f_n(x)\}$ has a subsequence that converges uniformly.
+\item Consider the family $\mathcal{F}=\{f_a:0<a\leq 1\}$ where $f_a(x)=1-\frac{x}{a}$.  Is $\mathcal{F}$ a compact subspace of $\mathsf{Top}([0,1],\R)$?
+\end{enumerate}
+\ep
+
+\end{document}
