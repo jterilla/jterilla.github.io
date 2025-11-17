@@ -57,7 +57,7 @@
 \bp The following is a fact that you may assume (or prove!) \begin{quote}
 \emph{Every $n$-dimensional Hausdorff topological vector space over $\R$ is homeomorphic to $\R^n$ with its usual topology.}
 \end{quote}
-Your problem:  Let $V$ be a topological vector space and $f:V \to \R^n$ be linear.  Prove that $f$ is continuous iff $\ker(f)$ is compact.
+Your problem:  Let $V$ be a topological vector space and $f:V \to \R^n$ be linear.  Prove that $f$ is continuous iff $\ker(f)$ is closed.
 \ep
 
 \bp Let $X$ be a topological space.  There's a little logical universe contained in $X$.  A \emph{predicate} on $X$ is an open set $U\subseteq X$ or if you prefer, an open embedding of a topological space $U \hookrightarrow X$.  A predicate $U$ is \emph{true} at a point $x\in U$.  Entailment is containment $U \vdash V$ means $U\subseteq V$.  
@@ -69,7 +69,7 @@ Conjunction  is intersection $U\wedge V:=U\cap V$, disjunction is union $U\vee V
   
   \item Prove that $U\vee \neg U=X\setminus \partial U$ and $\neg \neg U=\mathrm{int}(\overline{U})$.
   
-  \item Prove that $\neg \neg U =U$ and $U\vee \neg U =\top$ iff $X$ is discrete.
+  \item Prove that $\neg \neg U =U$ iff $U\vee \neg U =\top$ iff $X$ is discrete.
 \end{enumerate}
 \ep 
 
