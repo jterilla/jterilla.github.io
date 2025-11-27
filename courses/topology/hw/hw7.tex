@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amsthm,amssymb,fancyhdr,enumitem,tikz,tikz-cd,xcolor}
+\usepackage[top=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tikz-cd}
+
+
+%\addtolength{\textwidth}{1in}
+
+\theoremstyle{definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{problem}{}
+\newcommand{\bp}{\begin{problem}}
+\newcommand{\ep}{\end{problem}\bigskip}
+\theoremstyle{theorem}
+\newtheorem*{hint*}{Hint}
+\newtheorem*{answer}{Answer}
+
+\DeclareMathOperator{\id}{id}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\fix}{\mathrm{Fix}}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyfoot[R,C,L]{}
+\fancyhead[R]{\large \textbf{Fall 2025}}
+\fancyhead[L]{\large \textbf{Topology HW 7}}
+
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\Set}{\mathbf{Set}}
+
+
+\bp Let $X$ be locally compact and Hausdorff.  Prove that $(X\times \R)^*$, the one-point compactification of $X\times \R$ is homeomorphic to the suspension $\Sigma X$.  What does this say for $X=\R^n$?
+\ep
+
+\bp Consider the suspension-loop adjunction $\Sigma:\Top \leftrightarrows \Top:\Omega$.  The unit and counit of this adjunction are maps
+\[\eta_X:X \to \Omega \Sigma X \text{ and }\epsilon_Y:\Sigma \Omega Y \to Y\]
+Describe these maps and verify the two ``triangle identities''
+\[ \epsilon_{\Sigma X} \circ \Sigma(\eta_{X}) = \id_{\Sigma X} \text{ and }\Omega(\epsilon_Y) \circ \eta_{\Omega Y} = \id_{\Omega Y}.
+\]
+\ep
+
+
+\bp Consider the points $e=1$, $n=i$, $w=-1$, and $s=-i$ on $S^1$ and let $U=S^1\setminus \{e,w\}$ and $V=S^1\setminus \{n,s\}$.  Then $S^1$ is the pushout 
+\[
+  \begin{tikzcd}
+    U \cap V \arrow[r, "j_U"] \arrow[d, "j_V"'] & 
+    U \arrow[d] \\
+    V \arrow[r] & 
+    S^1 \arrow[ul, phantom, "\ulcorner", very near start]
+  \end{tikzcd}
+\]
+Use the groupoid version of SVK to compute $\Pi_1(S^1)$ and $\pi_1(S^1,1).$
+\ep
+
+
+\bp The map $\exp:\C \to \C^*$ is a covering map.  Prove that there cannot exist a function $g:\C^* \to \C$ with $ \exp\circ g =\id_{\C^*}.$
+\ep
+
+\bp Consider the diagram $S^1\leftarrow S^1 \leftarrow S^1 \leftarrow \cdots $ where every arrow is the map $z\mapsto z^p$ for a prime $p$.  The limit of this diagram, call it $X_p$, comes with maps to each $S^1$ in the picture.  Decide whether these maps $X_p\to S_1$ are covering maps and (if so) analyze the relevant groups.
+\ep
+
+
+\bp Let $X=S^1\vee S^1$.  
+\begin{enumerate}[label=(\alph*)]
+  \item Classify all two-sheeted covers of $X$ up to isomorphism.
+  \item Now take two of these two-sheeted covers $E\to X$ and $E'\to X$ and draw their pullback, which is a new cover of $X$.
+        \[
+          \begin{tikzcd}
+            E'' \arrow[r] \arrow[d] \arrow[dr, phantom, "\lrcorner", very near start] & 
+            E' \arrow[d, "p'"] \\
+            E \arrow[r, "p"'] & 
+            X
+          \end{tikzcd}
+        \]
+        
+  \item The covers in your pullback correspond to subgroups $H$ and $K$ of $G$, the free group on two generators.  What is the index of $H\cap K$ in $G$?
+\end{enumerate}
+\ep
+
+
+\bp The fundamental group of the Klein bottle $K$ is given by $\langle r,s: rsr=s\rangle$.  If we add the relations $r^n$ and $s^2$ we get the Dihedral group $D_n$.  So, $K$ admits a cover with Galois group $D_n$.  Describe it and describe the cover when we only add the relation $s^2$.
+\ep
+
+\end{document}
