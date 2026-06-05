@@ -4,164 +4,167 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>John Terilla</title>
-  <meta name="description" content="Mathematician. Topology, AI Foundations, and Quantum. Executive Officer of the PhD Program in Mathematics at the CUNY Graduate Center." />
+  <meta name="description" content="John Terilla — mathematician. Algebraic topology, artificial intelligence, and quantum physics. Executive Officer of the PhD Program in Mathematics at the CUNY Graduate Center." />
+  <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://jterilla.github.io/" />
-  <style>
-    /* ——— Fonts ——— */
-    
-    
-
-    /* ——— Theme tokens ——— */
-    :root {
-      --bg: #ffffff;
-      --ink: #0b0c0f;
-      --muted: #5a6270;
-      --accent: #b8871b; /* amber */
-      --link: currentColor;
-      --maxw: 960px;
-      /* section containers (cards): adjust these two lines to taste */                           /* e.g., color-mix(in oklab, #0b0c0f 2%, transparent) */               /* e.g., 1px solid rgba(127,127,127,.14) */
-    }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg:#0b0c0f; --ink:#e8eaef; --muted:#b2b8c4; --accent:#ffd591; }
-    }
-
-    html, body { height: 100%; }
-    body { margin: 0; background: var(--bg); color: var(--ink);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem; }
-
-    /* accessibility */
-    .skip-link { position:absolute; left:-999px; top:-999px; }
-    .skip-link:focus { left: 16px; top: 16px; background: #ffd166; color:#000; padding:.5rem .75rem; border-radius:.5rem; text-decoration:none; }
-
-    /* art-first hero */
-    .hero { margin: 0; }
-    .hero figure { margin: 0; }
-    .hero img { display:block; width:100%; height: clamp(280px, 55vh, 560px); object-fit: cover; }
-    .credit { position: relative; }
-    .credit small { position:absolute; right:.75rem; bottom:.5rem; background: rgba(0,0,0,.45); color:#fff; padding:.2rem .5rem; border-radius:.4rem; font-size:.8rem; }
-
-    /* intro */
-    .intro { padding: 2rem 0 1.25rem; }
-    .intro h1 { font-size: clamp(1.9rem, 3vw + 1rem, 2.4rem); margin:.25rem 0; letter-spacing:.2px; }
-    .intro .tag { color: var(--muted); margin: 0 0 .5rem; }
-
-    /* sections */
-    section { padding: 1.25rem 0; }
-    h2 { font-size: 1.3rem; margin: 0 0 .5rem; }
-    .meta { color: var(--muted); text-decoration: none; }
-
-    /* containers */
-    
-
-    /* lists */
-    .list { list-style:none; padding:0; margin:0; }
-    .list li { padding: .4rem 0; }
-    .list li + li { margin-top: .2rem; }
-
-    /* book block */
-    .book { display:grid; grid-template-columns: auto 1fr; gap: 1rem; align-items:center; }
-    .book img { width: 110px; height:auto; }
-
-    /* contact card */
-    
-    
-
-    /* footer */
-    footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 2rem; }
-    .footer-row { display:flex; justify-content:space-between; align-items:center; padding:1rem 0 2rem; color: var(--muted); }
-
-    /* links & focus */
-    a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
-    
-    a:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
-    /* dividers */
-    .divider { border: 0; height: 1px; background: color-mix(in oklab, var(--ink) 18%, transparent); margin: .5rem 0 1.25rem; }
-
-    /* grid helpers */
-    .grid{display:grid;gap:1rem}
-    @media (min-width:920px){.grid.two{grid-template-columns:1fr 1fr}}
-  </style>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body class="page-home">
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <header class="hero" aria-label="Artwork by David Scher">
-    <figure>
-      <img src="https://jterilla.github.io/banner-2400.avif" alt="Abstract artwork by David Scher" width="2400" height="1350" />
-      <div class="credit"><small>Artwork by David Scher</small></div>
-    </figure>
-  </header>
+  <main id="content">
 
-  <main id="content" class="wrap">
-    <section class="intro" aria-label="Introduction">
-      <p class="tag">John Terilla - Mathematician</p>
-      <h1>Topology, AI, and Quantum</h1>
-      <p>My work is in algebraic topology, artificial intelligence, and quantum physics. I currently serve as the Executive Officer of the <a href="https://www.gc.cuny.edu/mathematics">PhD Program in Mathematics</a> at the <a href="https://www.gc.cuny.edu/">CUNY Graduate Center</a> and I’m involved with the <a href="https://itsatcuny.org/">Initiative for Theoretical Sciences</a>.</p>
+    <section class="intro wrap" aria-label="Introduction">
+      <div class="identity">
+        <p class="role">Mathematician</p>
+        <h1>John Terilla</h1>
+        <p class="fields">Algebraic topology &middot; artificial intelligence &middot; quantum physics</p>
+      </div>
+      <p class="intro-copy">I currently serve as the Executive Officer of the <a href="https://www.gc.cuny.edu/mathematics">PhD Program in Mathematics</a> at the <a href="https://www.gc.cuny.edu/">CUNY Graduate Center</a>, and I&rsquo;m involved with the <a href="https://itsatcuny.org/">Initiative for Theoretical Sciences</a>.</p>
     </section>
 
-  
+    <figure class="art-band" aria-label="Artwork by David Scher">
+      <img src="banner-2400.avif" alt="Abstract painting by David Scher: a pale field of scattered marks, faint pencil lines, letters, and muted fragments of blue, ochre, and grey." width="2400" height="1555" />
+      <figcaption>Banner artwork by David Scher.</figcaption>
+    </figure>
 
-<!-- 
-<section id="teaching" aria-labelledby="teaching-h">
-<h2 id="teaching-h">Teaching</h2>
-<ul class="list">
-<li>
-<a href="courses/topology/">Topology (Fall 2025)</a>
-— <span class="meta">T/Th 9:30–11:00 • GC 6417</span>
-</li>
-</ul>
-</section>
- -->
-
-
-    <section id="papers" aria-labelledby="papers-h">
-      <h2 id="papers-h">Selected Papers </h2>
-      <ul class="list"> 
-        <li><a href="https://arxiv.org/abs/2606.03369">A calculus of types in Isbell nuclei</a> — with J.-L. Gastaldi, S. Jarvis, & T. Seiller <span class="meta">preprint 2026</span></li>
-        <li><a href="https://arxiv.org/abs/2601.07900">Projective metric geometry of tropical nuclei: gap matrices, event loci, and order chambers</a> — with J.-L. Gastaldi, S. Jarvis, & T. Seiller <span class="meta">preprint 2026</span></li>
-        <li><a href="https://arxiv.org/abs/2407.11606">The foundations of tokenization: statistical and computational concerns</a> — with J.-L. Gastaldi et al. <span class="meta">ICLR 2025</span></li>
-        <li><a href="rnoti-p174.pdf">The structure of meaning in language</a> — with T.-D. Bradley & J.-L. Gastaldi. <span class="meta">Notices of the AMS, Feb 2024</span></li>
-        <li><a href="https://link.springer.com/article/10.1007/s44007-022-00021-2">An enriched category theory of language: from syntax to semantics</a> — with T.-D. Bradley & Y. Vlassopoulos. <span class="meta">La Matematica, 2022</span></li>
-        <li><a href="entropy-21-01236-with-cover.pdf">Probabilistic modeling with matrix product states</a> — with J. Stokes. <span class="meta">Entropy, 2019</span></li>
-        <li><a href="https://arxiv.org/abs/1711.01416">Language as a matrix product state</a> — with V. Pestun & Y. Vlassopoulos. <span class="meta">arXiv:1711.01416, 2017</span></li>
-        <li><a href="https://nyjm.albany.edu/j/2017/23-46.html">Homotopy probability theory on a Riemannian manifold and the Euler equation</a> — with G.-C. Drummond-Cole. <span class="meta">New York J. Math., 2017</span></li>
-        <li><a href="https://tcms.org.ge/Journals/JHRS/xvolumes/2010/n1a2/v5n1a2hl.pdf">Algebras over cobar coFrobenius</a> — with G.-C. Drummond-Cole & T. Tradler. <span class="meta">J. Homotopy & Relat. Struct., 2010</span></li>
-        <li><a href="https://academic.oup.com/imrn/article-abstract/2009/5/765/729453">Quantum backgrounds and QFT</a> — with T. Tradler & J.-S. Park. <span class="meta">IMRN, 2009</span></li>
-        <li><a href="https://arxiv.org/abs/0709.2141">Smoothness theorem for differential BV algebras</a> — <span class="meta">J. Topology 1(3):693–702, 2008</span></li>
+    <!-- Teaching — re-enable when a course is in session
+    <section class="section wrap" id="teaching" aria-labelledby="teaching-h">
+      <div class="section-head"><h2 id="teaching-h">Teaching</h2></div>
+      <ul class="list">
+        <li><a href="courses/phd-topology-f25/">Topology (Fall 2025)</a> &mdash; <span class="pub-venue">T/Th 9:30&ndash;11:00 &middot; GC 6417</span></li>
       </ul>
     </section>
+    -->
 
- 
-    <section aria-labelledby="book-h">
-      <h2 id="book-h"><em>Topology — A Categorical Approach</em></h2>
+    <section class="section wrap" id="papers" aria-labelledby="papers-h">
+      <div class="section-head"><h2 id="papers-h">Selected papers</h2></div>
+      <ol class="list pubs">
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://arxiv.org/abs/2606.03369">A calculus of types in Isbell nuclei</a>
+            <span class="pub-authors">with J.-L. Gastaldi, S. Jarvis &amp; T. Seiller</span>
+          </span>
+          <span class="pub-venue">preprint 2026</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://arxiv.org/abs/2601.07900">Projective metric geometry of tropical nuclei: gap matrices, event loci, and order chambers</a>
+            <span class="pub-authors">with J.-L. Gastaldi, S. Jarvis &amp; T. Seiller</span>
+          </span>
+          <span class="pub-venue">preprint 2026</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://arxiv.org/abs/2407.11606">The foundations of tokenization: statistical and computational concerns</a>
+            <span class="pub-authors">with J.-L. Gastaldi et al.</span>
+          </span>
+          <span class="pub-venue">ICLR 2025</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="rnoti-p174.pdf">The structure of meaning in language</a>
+            <span class="pub-authors">with T.-D. Bradley &amp; J.-L. Gastaldi</span>
+          </span>
+          <span class="pub-venue">Notices of the AMS, Feb 2024</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://link.springer.com/article/10.1007/s44007-022-00021-2">An enriched category theory of language: from syntax to semantics</a>
+            <span class="pub-authors">with T.-D. Bradley &amp; Y. Vlassopoulos</span>
+          </span>
+          <span class="pub-venue">La Matematica, 2022</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="entropy-21-01236-with-cover.pdf">Probabilistic modeling with matrix product states</a>
+            <span class="pub-authors">with J. Stokes</span>
+          </span>
+          <span class="pub-venue">Entropy, 2019</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://arxiv.org/abs/1711.01416">Language as a matrix product state</a>
+            <span class="pub-authors">with V. Pestun &amp; Y. Vlassopoulos</span>
+          </span>
+          <span class="pub-venue">unpublished, 2017</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://nyjm.albany.edu/j/2017/23-46.html">Homotopy probability theory on a Riemannian manifold and the Euler equation</a>
+            <span class="pub-authors">with G.-C. Drummond-Cole</span>
+          </span>
+          <span class="pub-venue">New York J. Math., 2017</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://tcms.org.ge/Journals/JHRS/xvolumes/2010/n1a2/v5n1a2hl.pdf">Algebras over cobar coFrobenius</a>
+            <span class="pub-authors">with G.-C. Drummond-Cole &amp; T. Tradler</span>
+          </span>
+          <span class="pub-venue">J. Homotopy &amp; Relat. Struct., 2010</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://academic.oup.com/imrn/article-abstract/2009/5/765/729453">Quantum backgrounds and QFT</a>
+            <span class="pub-authors">with T. Tradler &amp; J.-S. Park</span>
+          </span>
+          <span class="pub-venue">IMRN, 2009</span>
+        </li>
+        <li class="pub">
+          <span class="pub-main">
+            <a class="pub-title" href="https://arxiv.org/abs/0709.2141">Smoothness theorem for differential BV algebras</a>
+          </span>
+          <span class="pub-venue">J. Topology, 2008</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section wrap" aria-labelledby="book-h">
+      <div class="section-head"><h2 id="book-h">Book</h2></div>
       <div class="book">
-        <img src="TopologyBook/TopologyACategoricalApproach.png" alt="Cover: Topology — A Categorical Approach" width="200" height="260" />
-        <div>
+        <span class="book-cover">
+          <img src="TopologyBook/TopologyACategoricalApproach.png" alt="Cover: Topology — A Categorical Approach" width="350" height="450" loading="lazy" />
+        </span>
+        <div class="book-copy">
+          <h3><em>Topology &mdash; A Categorical Approach</em></h3>
           <p>A graduate-level textbook that presents basic topology from the perspective of category theory. Chapter PDFs are available open access.</p>
-          <p><a class="link" href="TopologyBook/">Book page →</a></p>
+          <p><a class="arrow-link" href="TopologyBook/">Book page</a></p>
         </div>
       </div>
     </section>
 
-
-    <section aria-labelledby="students-h">
-      <h2 id="students-h">PhD Students</h2>
-      <ul class="list">
-        <li>Samantha Jarvis (2025). Thesis: <em>A Novel Closed Monoidal Structure on the Nucleus of a Profunctor</em>.</li>
-        <li><a href="https://www.linkedin.com/in/tyler-bryson-89555117">Tyler Bryson</a> (2023). Thesis: <em>An Explicit Construction of Sheaves in Context</em>.</li>
-        <li><a href="https://www.math3ma.com/">Tai-Danae Bradley</a> (2020). Thesis: <em>At the Interface of Algebra and Statistics</em>.</li>
-        <li><a href="https://www.linkedin.com/in/joseph-hirsh">Joseph Hirsh</a> (2013). Thesis: <em>Derived Noncommutative Deformation Theory</em>.</li>
-        <li><a href="https://drummondcole.com/">Gabriel Drummond-Cole</a> (2010). Thesis: <em>Homotopy Batalin–Vilkovisky algebras, trivializing circle actions, and moduli space</em>.</li>
+    <section class="section wrap" aria-labelledby="students-h">
+      <div class="section-head"><h2 id="students-h">PhD students</h2></div>
+      <ul class="list people">
+        <li>
+          <span class="person-line"><span class="person-name">Samantha Jarvis</span> <span class="person-year">(2025)</span></span>
+          <span class="person-thesis"><em>A Novel Closed Monoidal Structure on the Nucleus of a Profunctor</em></span>
+        </li>
+        <li>
+          <span class="person-line"><a class="person-name" href="https://www.linkedin.com/in/tyler-bryson-89555117">Tyler Bryson</a> <span class="person-year">(2023)</span></span>
+          <span class="person-thesis"><em>An Explicit Construction of Sheaves in Context</em></span>
+        </li>
+        <li>
+          <span class="person-line"><a class="person-name" href="https://www.math3ma.com/">Tai-Danae Bradley</a> <span class="person-year">(2020)</span></span>
+          <span class="person-thesis"><em>At the Interface of Algebra and Statistics</em></span>
+        </li>
+        <li>
+          <span class="person-line"><a class="person-name" href="https://www.linkedin.com/in/joseph-hirsh">Joseph Hirsh</a> <span class="person-year">(2013)</span></span>
+          <span class="person-thesis"><em>Derived Noncommutative Deformation Theory</em></span>
+        </li>
+        <li>
+          <span class="person-line"><a class="person-name" href="https://drummondcole.com/gabriel/academic/">Gabriel Drummond-Cole</a> <span class="person-year">(2010)</span></span>
+          <span class="person-thesis"><em>Homotopy Batalin&ndash;Vilkovisky algebras, trivializing circle actions, and moduli space</em></span>
+        </li>
       </ul>
     </section>
 
   </main>
 
-  <footer class="wrap">
-    <div class="footer-row">
-      <div>© <span id="y">2025</span> John Terilla</div>
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <div>&copy; <span id="y">2025</span> John Terilla</div>
       <div><a href="mailto:jterilla@gc.cuny.edu">jterilla@gc.cuny.edu</a></div>
     </div>
   </footer>
