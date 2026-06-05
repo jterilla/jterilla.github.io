@@ -298,10 +298,18 @@ a:focus-visible {
 }
 .book-cover { width: 100%; align-self: start; border: 1px solid var(--rule); }
 .book-cover img { display: block; width: 100%; }
+.book-copy { min-width: 0; }
 .book-copy > :first-child { margin-top: 0; }
 .book .arrow-link { margin-top: 0.5rem; }
 @media (max-width: 460px) {
-  .book { grid-template-columns: min(150px, 46vw); }
+  .book {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .book .book-cover {
+    width: min(150px, 46vw);
+    max-width: 150px;
+  }
 }
 
 /* Students — name + year, thesis in italic beneath. */
@@ -364,6 +372,7 @@ a:focus-visible {
   padding-block: clamp(1.75rem, 1.25rem + 2vw, 2.75rem) 0;
 }
 .book-hero .book-cover { width: 150px; }
+.book-hero > div { min-width: 0; }
 .book-hero h1 {
   font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
   line-height: 1.04;
@@ -371,7 +380,14 @@ a:focus-visible {
 }
 .book-hero .credit { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
 @media (max-width: 620px) {
-  .book-hero { grid-template-columns: min(160px, 48vw); }
+  .book-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .book-hero .book-cover {
+    width: min(160px, 48vw);
+    max-width: 160px;
+  }
 }
 
 /* Action links — framed, minimal radius; not pills. */
